@@ -80,6 +80,7 @@ table.grid tr.sub th,table.grid tr.sub td{background:#f2f5f6;font-weight:700}
 table.grid td.ok{background:#e9f5ee;color:#14603f;font-weight:700}
 table.grid td.bad{background:#fbe4e2;color:#98291b;font-weight:700}
 table.grid td.qcell{opacity:.55}
+table.grid tr.hlrow td{background:#eef1f0;font-weight:600}
 table.lefty td:first-child,table.lefty th:first-child{text-align:center}
 table.lefty td.ok{background:#e9f5ee} table.lefty td.bad{background:#fbe4e2}
 
@@ -258,19 +259,29 @@ footer{margin-top:56px;border-top:1px solid var(--line);padding-top:18px;font-si
   </div>
 
   <h3>股價、本益比與殖利率</h3>
-  <p><strong>誠實說明技術限制：本次抓不到「當下」的可靠報價。</strong>多個財經網站回傳的都是不同時間點的快取快照，且彼此差距極大（同一個月內從 509 元到 294 元）。以下逐筆列出各自的抓取時點與來源，<strong>不合併成區間</strong>，因為頁面上從來沒有出現過區間這種東西——它顯示的永遠是那一刻的單一數字。</p>
-  <div class="scroll"><table class="grid lefty"><thead><tr><th>抓取時點</th><th>股價（元）</th><th>本益比（推算）</th><th>殖利率（推算）</th><th>來源</th></tr></thead><tbody><tr><td>2026/07/30 收盤</td><td class="n pos"><b>294.0</b></td><td class="n">83.4 倍</td><td class="n">0.67%</td><td><a href="https://tw.stock.yahoo.com/quote/8021.TW/technical-analysis">Yahoo 股市技術分析頁</a></td></tr><tr><td>2026/07/27 盤中</td><td class="n pos"><b>372.0</b></td><td class="n">105.3 倍</td><td class="n">0.53%</td><td><a href="https://www.cnyes.com/twstock/8021">鉅亨網個股頁</a></td></tr><tr><td>2026/06/15 盤中</td><td class="n pos"><b>509.0</b></td><td class="n">149.6 倍</td><td class="n">0.39%</td><td><a href="https://tw.stock.yahoo.com/quote/8021">Yahoo 股市個股頁</a></td></tr></tbody></table></div>
-  <p class="note">本益比與殖利率為<strong>推算數字</strong>：本益比＝該時點股價 ÷ 近四季 EPS 3.53 元；殖利率＝1.972 元 ÷ 該時點股價。近四季 EPS 3.53 元、每股淨值 30.46 元、發行股數 1.45 億股、52 週高 627.00 元／低 51.50 元，取自<a href="https://www.cnyes.com/twstock/8021">鉅亨網個股頁（2026/07/27 抓取）</a>。<strong>正式交易請以你自己的看盤軟體為準</strong>，上述任何一個數字都不是即時報價。</p>
+  <p><strong>2026/08/06 收盤 417.5 元</strong>（由使用者提供、並經使用者確認）。我要誠實說明一件事：本次<strong>自動抓取無法取得可靠的當下報價</strong>——各財經網站回傳的都是不同時間點的快取快照，同一個月內從 509 元跳到 294 元。因此下表把每一個時點各自列出、<strong>不合併成區間</strong>，因為頁面上從來沒有出現過區間這種東西，它顯示的永遠是那一刻的單一數字。</p>
+  <div class="scroll"><table class="grid lefty"><thead><tr><th>抓取時點</th><th>股價（元）</th><th>本益比（推算）</th><th>殖利率（推算）</th><th>來源</th></tr></thead><tbody><tr class="hlrow"><td>2026/08/06（使用者提供）</td><td class="n pos"><b>417.5</b></td><td class="n">118.3 倍</td><td class="n">0.47%</td><td>使用者看盤軟體報價</td></tr><tr><td>2026/07/30 收盤</td><td class="n pos"><b>294.0</b></td><td class="n">83.3 倍</td><td class="n">0.67%</td><td><a href="https://tw.stock.yahoo.com/quote/8021.TW/technical-analysis">Yahoo 股市技術分析頁</a></td></tr><tr><td>2026/07/27 盤中</td><td class="n pos"><b>372.0</b></td><td class="n">105.4 倍</td><td class="n">0.53%</td><td><a href="https://www.cnyes.com/twstock/8021">鉅亨網個股頁</a></td></tr><tr><td>2026/06/15 盤中</td><td class="n pos"><b>509.0</b></td><td class="n">144.2 倍</td><td class="n">0.39%</td><td><a href="https://tw.stock.yahoo.com/quote/8021">Yahoo 股市個股頁</a></td></tr><tr><td>2026/04/24 收盤</td><td class="n pos"><b>451.0</b></td><td class="n">127.8 倍</td><td class="n">0.44%</td><td><a href="https://tw.stock.yahoo.com/quote/8021.TW/announcement">公司重大訊息公告（轉換標的收市價）</a></td></tr></tbody></table></div>
+  <p class="note">首列（灰底）為使用者提供之當日收盤價，其餘為各網站快照。本益比與殖利率為<strong>推算數字</strong>：本益比＝該時點股價 ÷ 近四季 EPS 3.53 元；殖利率＝現金股利 1.972 元 ÷ 該時點股價。近四季 EPS 3.53 元、每股淨值 30.46 元、發行股數 1.45 億股、52 週高 627.00 元／低 51.50 元，取自<a href="https://www.cnyes.com/twstock/8021">鉅亨網個股頁（2026/07/27 抓取）</a>。</p>
   <div class="keybox alertbox">
-    <p><strong>不論用哪個時點的價格，這都是一檔昂貴的股票。</strong>即使用最低的 294 元計算，本益比仍達 <span class="negv">83 倍</span>、股價淨值比約 <span class="negv">9.7 倍</span>、殖利率僅 <span class="negv">0.67%</span>。52 週區間 51.50 元到 627.00 元，代表<strong>一年之內最大波動超過 12 倍</strong>。</p>
+    <p><strong>以 417.5 元計算，這是一檔非常昂貴的股票。</strong>本益比約 <span class="negv">118 倍</span>、股價淨值比約 <span class="negv">13.7 倍</span>、現金殖利率僅 <span class="negv">0.47%</span>、市值約 <span class="negv">605 億元</span>。距 52 週高點 627 元還有 −33%，但距 52 週低點 51.5 元已上漲逾 <span class="negv">7 倍</span>。</p>
+    <p>把這個估值放回第一步的結論旁邊看，落差非常刺眼：<strong>一家 17 年來營業現金流從 6.45 億走到 6.77 億、幾乎零成長的公司，現在被市場用 118 倍本益比定價。</strong>這代表股價已經<strong>完全預支了未來數年的成長</strong>——而那個成長必須是真的、而且必須非常大。第 5 步的前瞻本益比會處理「到底要多大」這個問題。</p>
   </div>
-  <p>股本變動查核：近兩年<strong>未進行股票分割</strong>，最近一次股本變動是 2018 年的現金減資（1.58 億元，見第一步融資細項），距今已 8 年，不影響 2025 與 2026 年之間的 EPS 比較基礎。26Q1 股本由 14.2 億增至 14.5 億元，屬可轉債／員工認股等小幅變動。</p>
+  <p>股本變動查核：近兩年<strong>未進行股票分割</strong>，最近一次股本變動是 2018 年的現金減資（1.58 億元，見第一步融資細項），距今已 8 年，不影響 2025 與 2026 年之間的 EPS 比較基礎。26Q1 股本由 14.2 億增至 14.5 億元，屬可轉債轉換等小幅變動。</p>
 
   <h3>EPS 與獲利</h3>
   <div class="scroll"><table class="grid"><thead><tr><th class="rowh">季別</th><th>2025Q1</th><th>2025Q2</th><th>2025Q3</th><th>2025Q4</th><th>2026Q1</th></tr></thead><tbody><tr><th class="rowh">單季 EPS（元）</th><td class="n pos">0.36</td><td class="n pos">0.55</td><td class="n pos">0.78</td><td class="n pos">1.06</td><td class="n pos">1.17</td></tr></tbody></table></div>
   <p><cite>2025 年全年營收 44.1 億元、年增 24.5%，歸屬母公司業主淨利 3.89 億元，每股盈餘 2.75 元；2025 年第 4 季合併營收 13.41 億元，季增 14.8%、年增 40.8%，毛利率 34.8%，歸屬母公司淨利 1.5 億元、年增 207%，每股盈餘 1.06 元</cite>。<cite>2026 年第一季合併營收 13.40 億元與上季持平，毛利率提升至 36.6%，歸屬母公司權益 1.69 億元，營業利益率突破 20% 大關達 20.1%</cite>，單季 EPS 1.17 元。</p>
   <p><strong>連續五季逐季墊高，且是靠毛利率而非只靠營收。</strong>26Q1 營收與 25Q4 幾乎持平（13.40 vs 13.41 億），EPS 卻從 1.06 升到 1.17——差別全在產品組合。</p>
 
+  <h3>公司自結獲利（重大訊息公告）</h3>
+  <p>兩份因股價達注意交易標準而發布的公告，揭露了月度自結數，這比月營收更有價值——<strong>它同時給了獲利</strong>：</p>
+  <div class="scroll"><table class="grid lefty"><thead><tr><th>月份</th><th>營業收入（億元）</th><th>年增率</th><th>稅前淨利（億元）</th><th>年增率</th></tr></thead><tbody><tr><td>2026/05</td><td class="n pos"><b>6.20</b></td><td class="n">+86.3%</td><td class="n pos"><b>1.72</b></td><td class="n">+343.2%</td></tr><tr><td>2026/06</td><td class="n pos"><b>6.81</b></td><td class="n">+90.1%</td><td class="n pos"><b>2.02</b></td><td class="n">+238.4%</td></tr></tbody></table></div>
+  <p><strong>6 月單月稅前淨利 2.02 億元。</strong>對照第一步的長期數據：這家公司 2023 年全年稅前淨利才 1.37 億、2024 年 2.92 億——<strong>現在單一個月就快追上 2024 年一整年</strong>。同兩份公告也揭露最近四季（114Q2–115Q1）累計營業收入 48.62 億元、稅前淨利 8.58 億元。</p>
+  <div class="snap-note">來源：<a href="https://tw.stock.yahoo.com/quote/8021.TW/announcement">Yahoo 股市個股公告頁</a>，2026/06/16 與 2026/07/22 兩則「達公布注意交易資訊標準」重大訊息。公告中的月數字為<strong>合併自結數</strong>（未經會計師核閱），季數字為合併核閱數。</p>
+
+  <h3>可轉債轉換進度</h3>
+  <p>2026/04/24 的公告揭露了「尖點二」的即時狀態：實際發行總額 7 億元，截至 115/04/23 <strong>未轉換餘額 6.724 億元</strong>（即已轉換約 2,760 萬元），<strong>最新轉換價格已調整為 201.8 元</strong>，當日 8021 收盤 451.00 元、轉債 80212 收盤 220.00 元，到期日 120/01/20。</p>
+  <p><strong>這個組合意味著什麼：</strong>轉換價 201.8 元、股價 400 元以上，代表可轉債持有人<strong>穩賺一倍以上，幾乎必然全數轉換</strong>。剩餘 6.724 億 ÷ 201.8 元 ≈ <strong>333 萬股</strong>將陸續進入市場，相對 1.45 億股約 2.3%。加上 5.958 億元的私募 CB（轉換價未查得），<strong>潛在稀釋合計可能達 5% 上下</strong>——在計算前瞻 EPS 時，分母不能只用現在的股數。</p>
   <h3>近期月營收</h3>
   <div class="scroll"><table class="grid"><thead><tr><th class="rowh">月份</th><th>2025/09</th><th>2025/10</th><th>2025/11</th><th>2025/12</th><th>2026/01</th><th>2026/02</th><th>2026/03*</th><th>2026/04*</th><th>2026/05</th><th>2026/06</th></tr></thead><tbody><tr><th class="rowh">月營收（億元）</th><td class="n pos">4.18</td><td class="n pos">4.38</td><td class="n pos">4.38</td><td class="n pos">4.66</td><td class="n pos">4.53</td><td class="n pos">4.13</td><td class="n pos">4.74</td><td class="n pos">5.25</td><td class="n pos">6.20</td><td class="n pos">6.81</td></tr><tr><th class="rowh">年增率</th><td class="n">+27.6%</td><td class="n">+38.7%</td><td class="n">+39.2%</td><td class="n">+44.3%</td><td class="n">+59.2%</td><td class="n">+42.5%</td><td class="n">－</td><td class="n">－</td><td class="n">+86.3%</td><td class="n">+90%</td></tr></tbody></table></div>
   <p class="note">標示 <strong>*</strong> 者為<strong>推算數字</strong>：2026/03 ＝ 26Q1 合併營收 13.40 億 − 1 月 4.53 億 − 2 月 4.13 億；2026/04 ＝ 5 月營收 6.20 億 ÷（1＋月增率 18.19%）。兩者皆非直接查得的公告數字，僅供趨勢參考。</p>
@@ -302,7 +313,7 @@ footer{margin-top:56px;border-top:1px solid var(--line);padding-top:18px;font-si
   <div class="pending">僅在使用者主動詢問時執行。</div></section>
 
 <footer>
-  <p>報告版本 v1.1｜生成時間 2026-08-06｜股票代號 8021（尖點）</p>
+  <p>報告版本 v1.2｜生成時間 2026-08-06｜股票代號 8021（尖點）</p>
   <p>資料來源：所有現金流量表、投資活動細項、融資活動細項數據均由<strong>使用者提供之 Goodinfo 截圖</strong>，非本次網路搜尋或自動抓取所得。第一步為盲測階段，未查詢亦未引用該公司股價、EPS、產業地位或任何新聞背景。</p>
   <p>本報告為財務數據的結構化整理與推理，不構成投資建議。</p>
 </footer>
