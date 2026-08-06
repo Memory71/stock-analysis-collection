@@ -1,6 +1,6 @@
 # 📊 stock-analysis-collection
 
-台股個股分析報告收藏庫。本 Repo 用來存放**已完成分析的個股研究報告**，每一檔股票對應一份獨立的互動式 HTML 檔案，可直接在瀏覽器中開啟閱讀。
+台股個股分析報告收藏庫;此 Repository 用來存放**已完成分析的個股研究報告**，每一檔股票對應一份獨立的互動式 HTML 檔案，可直接在瀏覽器中開啟閱讀。
 
 ---
 
@@ -15,7 +15,7 @@ https://memory71.github.io/stock-analysis-collection/2059_kingslide_analysis.htm
                                                     └──────── 換成其他檔名 ────────┘
 ```
 
-**要看其他個股，只要把網址最後那段檔名換掉就好**，例如換成 `2301_liteon_analysis.html`、`3023_sinbon_analysis.html`。完整的檔名清單請看本 Repo 首頁上方的檔案列表（那才是最新的）。
+**要看其他個股，只要把網址最後那段檔名換掉就好**，例如換成 `2301_liteon_analysis.html`、`3023_sinbon_analysis.html`。完整的檔名清單請看本 Repository 首頁上方的檔案列表（那才是最新的）。
 
 > 💡 這條網址由 GitHub Pages 提供。若點了出現 404，代表 Pages 尚未啟用，請先照 [方法一](#-方法一開啟-github-pages最推薦一次設定終身受用) 設定一次即可（約 2 分鐘）。不想設定的話，可改用下面的 [方法二](#-方法二使用-html-preview免設定馬上能看)。
 
@@ -31,7 +31,7 @@ https://memory71.github.io/stock-analysis-collection/2059_kingslide_analysis.htm
 
 ### 📑 範例清單（僅供參考格式，非完整清單）
 
-以下只是幾個示範用的檔名，**本 README 不會隨新增報告同步更新**。想知道目前收錄了哪些個股，請直接看 Repo 首頁的檔案列表。
+以下只是幾個示範用的檔名，**本 README 不會隨新增報告同步更新**。想知道目前收錄了哪些個股，請直接看 Repository 首頁的檔案列表。
 
 | 股票代號 | 公司名稱 | 檔案 |
 | --- | --- | --- |
@@ -51,7 +51,7 @@ https://memory71.github.io/stock-analysis-collection/2059_kingslide_analysis.htm
 
 設定完成後，每份報告都會有一個乾淨的永久網址，手機、電腦、傳給別人都能直接開。
 
-1. 進入本 Repo 的 **Settings**（右上角齒輪）
+1. 進入本 Repository 的 **Settings**（右上角齒輪）
 2. 左側選單找到 **Pages**
 3. **Source** 選擇 `Deploy from a branch`
 4. **Branch** 選 `main`，資料夾選 `/ (root)`，按 **Save**
@@ -83,7 +83,7 @@ https://htmlpreview.github.io/?https://github.com/Memory71/stock-analysis-collec
 2. 點右上角的 **Download raw file**（下載圖示）
 3. 在下載資料夾對檔案按兩下，用瀏覽器開啟
 
-### 🔧 方法四：Clone 整個 Repo（適合一次看全部）
+### 🔧 方法四：Clone 整個 Repository（適合一次看全部）
 
 ```bash
 git clone https://github.com/Memory71/stock-analysis-collection.git
@@ -101,7 +101,7 @@ macOS 用 `open 2059_kingslide_analysis.html`，Windows 用 `start 2059_kingslid
 | GitHub Pages | 一次性設定 | 快 | 想長期分享、給別人看 |
 | HTML Preview | 免設定 | 慢 | 臨時看一份、不想改設定 |
 | 下載 Raw | 免設定 | 快 | 想離線保存 |
-| Clone Repo | 需裝 Git | 快 | 想一次取得全部報告 |
+| Clone Repository | 需裝 Git | 快 | 想一次取得全部報告 |
 
 ---
 
