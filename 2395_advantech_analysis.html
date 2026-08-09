@@ -153,12 +153,12 @@ footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:20px;
   <h1 class="title"><span class="code">2395</span>研華</h1>
   <p class="sub">六步驟分析流程。第一步為<b>盲測</b>——在讀完現金流量表數字之前，不查股價、產業地位與任何新聞背景，避免公司故事影響對財務數字的解讀。</p>
   <div class="meta">
-    <span>報告版本 v1.3</span><span>生成時間 2026-08-10</span>
-    <span>目前完成：第 1–4 步</span><span>計分視窗 2016–2025</span>
+    <span>報告版本 v1.4</span><span>生成時間 2026-08-10</span>
+    <span>目前完成：第 1–5 步</span><span>計分視窗 2016–2025</span>
   </div>
 </header>
 
-<nav class="stepnav" aria-label="步驟導覽"><button class="pad active" data-t="step1"><span class="k">01</span>現金流六大規則</button><button class="pad" data-t="step2"><span class="k">02</span>基本資訊</button><button class="pad" data-t="step3"><span class="k">03</span>法說會</button><button class="pad" data-t="step4"><span class="k">04</span>營收趨勢</button><button class="pad locked" data-t="step5"><span class="k">05</span>前瞻本益比</button><button class="pad locked" data-t="step6"><span class="k">06</span>投資決策</button></nav>
+<nav class="stepnav" aria-label="步驟導覽"><button class="pad active" data-t="step1"><span class="k">01</span>現金流六大規則</button><button class="pad" data-t="step2"><span class="k">02</span>基本資訊</button><button class="pad" data-t="step3"><span class="k">03</span>法說會</button><button class="pad" data-t="step4"><span class="k">04</span>營收趨勢</button><button class="pad" data-t="step5"><span class="k">05</span>前瞻本益比</button><button class="pad locked" data-t="step6"><span class="k">06</span>投資決策</button></nav>
 
 <section id="step1">
   <div class="steptag">第 1 步／共 6 步</div>
@@ -570,8 +570,96 @@ footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:20px;
 
 <section id="step5">
   <div class="steptag">第 5 步／共 6 步</div>
-  <h2>前瞻本益比／EPS 預估</h2>
-  <div class="pending">尚未開始。</div>
+  <h2>前瞻本益比與 EPS 情境模型</h2>
+
+  <div class="key">
+    <div class="kt">本步驟重點</div>
+    <p><b>「40 倍本益比很貴」這個第一印象需要修正。</b>40.15 倍是用<b>近四季 EPS 15.84 元</b>算出來的，而近四季裡有兩季（25Q3、25Q4）還停在平台期。若換成 2026 全年，本報告基準情境的 EPS 為 <b>22.00 元</b>，<span class="posv-t">前瞻本益比降到 28.8 倍</span>；即使是保守情境也只有 31.7 倍。</p>
+    <p><b>但更值得注意的是共識本身有問題。</b>FactSet 17 位分析師 2026 年 EPS 中位數 16.84 元，隱含<span class="negv-t">下半年 EPS 只有 7.79 元、低於上半年的 9.05 元</span>——這與公司「Q3 營收季增年增雙成長、續創新高、雙率維持上季水準」的指引<b>直接矛盾</b>。共識營收中位數 911.8 億更隱含 8 到 12 月月均營收僅 <b>66.8 億</b>，低於 2026 年 3 月以來的<b>任何一個月</b>。</p>
+    <p><b>目標價則呈現典型的落後。</b>FactSet 共識目標價 550 元<span class="negv-t">低於 8/7 收盤的 634 元達 13%</span>；UBS 三週前給的 628 元也已被超越。但法說會後個別券商已把目標價全面調到 <b>700–800 元</b>——<b>共識中位數的更新速度，明顯慢於個別分析師</b>。</p>
+  </div>
+
+  <h3>模型的起點：已經確定的部分</h3>
+  <p class="lead">2026 年只剩五個月要估。上半年已公布、7 月營收已公告，也就是說<b>全年有超過一半的營收已經是既成事實</b>，不確定性集中在 8 到 12 月。</p>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">已確定的基礎</th><th>數值</th><th style="text-align:left">來源</th></tr></thead><tbody>
+  <tr><th class="rh">26H1 營收</th><td class="n">465.12 億</td><td class="l">公司 7/31 財報公告</td></tr>
+  <tr><th class="rh">26H1 EPS</th><td class="n">9.05 元</td><td class="l">同上</td></tr>
+  <tr><th class="rh">26 年 7 月營收</th><td class="n">112.72 億</td><td class="l">公司 8/7 營收公告，歷史單月新高</td></tr>
+  <tr><th class="rh">26H1 有效稅率</th><td class="n">19.0%</td><td class="l">推算＝1 −（稅後 78.21 ÷ 稅前 96.58）</td></tr>
+  <tr><th class="rh">26H1 業外損益</th><td class="n">8.02 億</td><td class="l">推算＝稅前 96.58 − 營業利益 88.56</td></tr>
+  <tr><th class="rh">在外流通股數</th><td class="n">8.68 億股</td><td class="l">依 26Q2 平均股本 86.8 億元</td></tr>
+  <tr><th class="rh">26Q3 指引</th><td class="l" colspan="2">營收年增、季增雙成長且「增幅不小」、續創單季新高；<b>毛利率與營益率維持上季水準</b>（即約 37.7% 與 19.6%）</td></tr>
+  </tbody></table></div>
+  <p class="cap">模型假設：H2 業外損益比照 H1 取 8 億元、有效稅率沿用 19.0%、股數不變。三者若變動，結果會等比例移動。</p>
+
+  <h3>三情境營收與 EPS</h3>
+  <div class="tw"><table class="grid wide"><thead><tr><th class="rh">情境</th><th>8、9 月月均</th><th>26Q3 營收</th><th>26Q4 營收</th><th>全年營收</th><th>年增</th><th>H2 營益率</th><th>H2 EPS</th><th>全年 EPS</th><th>前瞻本益比</th></tr></thead><tbody><tr><th class="rh">保守</th><td class="n">95</td><td class="n">302.7</td><td class="n">287.6</td><td class="n">1,055.4</td><td class="n posv">+48.9%</td><td class="n">18.5%</td><td class="n">10.94</td><td class="n">19.99</td><td class="n negv">31.7 倍</td></tr><tr class="hlrow"><th class="rh">基準</th><td class="n">108</td><td class="n">328.7</td><td class="n">338.6</td><td class="n">1,132.4</td><td class="n posv">+59.8%</td><td class="n">19.6%</td><td class="n">12.95</td><td class="n">22.00</td><td class="n">28.8 倍</td></tr><tr><th class="rh">樂觀</th><td class="n">118</td><td class="n">348.7</td><td class="n">376.6</td><td class="n">1,190.4</td><td class="n posv">+67.9%</td><td class="n">20.5%</td><td class="n">14.62</td><td class="n">23.67</td><td class="n posv">26.8 倍</td></tr></tbody></table></div>
+  <p class="cap">單位：億元 ／ 元 ／ 倍。前瞻本益比以 2026/08/07 收盤價 634 元計算。三情境的差別只在 8 月之後的月營收假設與 H2 營益率，其餘參數相同。</p>
+  <p>三個情境的設定邏輯：</p>
+  <ul>
+    <li><b>保守（8、9 月月均 95 億）。</b>比 7 月的 112.7 億回落 16%，Q4 因專用料短缺導致出貨較 Q3 再下滑 5%。這不是「需求轉弱」情境，而是<b>「供給卡住」情境</b>——法說會明確提到 PCB、CPU、Power IC 缺貨嚴重，公司「較擔憂第四季料況」。即便如此全年營收仍有 1,055 億、年增 48.9%。</li>
+    <li><b>基準（8、9 月月均 108 億）。</b>略低於 7 月水準，Q3 季增 25.8%，符合公司「增幅不小」的說法；Q4 小幅季增 3%。營益率照公司指引取 19.6%。</li>
+    <li><b>樂觀（8、9 月月均 118 億）。</b>假設下半年再度啟動雙位數漲價、且產能調配順利。但這個情境有天花板——法說會揭露<b>崑山廠稼動率已達 106–110%、台灣廠 105–110%</b>，工廠已接近甚至超過滿載，短期營收成長受制於供應能力而非需求。</li>
+  </ul>
+
+  <h3>各種 EPS 基準下的本益比對照</h3>
+  <div class="chartbox"><svg class="bars" viewBox="0 0 980 200" preserveAspectRatio="xMidYMid meet" role="img"><line x1="8" y1="170.0" x2="972" y2="170.0" class="axis"/><rect x="27.3" y="93.4" width="57.8" height="76.6" rx="2" class="b-trough"/><text x="56.2" y="87.4" class="bval">12.2</text><text x="56.2" y="192" class="blab">25實際</text><rect x="123.7" y="81.8" width="57.8" height="88.2" rx="2" class="b-normal"/><text x="152.6" y="75.8" class="bval">14.1</text><text x="152.6" y="192" class="blab">FS最低</text><rect x="220.1" y="64.7" width="57.8" height="105.3" rx="2" class="b-normal"/><text x="249.0" y="58.7" class="bval">16.8</text><text x="249.0" y="192" class="blab">FS中位</text><rect x="316.5" y="61.7" width="57.8" height="108.3" rx="2" class="b-normal"/><text x="345.4" y="55.7" class="bval">17.3</text><text x="345.4" y="192" class="blab">FS平均</text><rect x="412.9" y="57.3" width="57.8" height="112.7" rx="2" class="b-normal"/><text x="441.8" y="51.3" class="bval">18</text><text x="441.8" y="192" class="blab">美林</text><rect x="509.3" y="51.6" width="57.8" height="118.4" rx="2" class="b-normal"/><text x="538.2" y="45.6" class="bval">18.9</text><text x="538.2" y="192" class="blab">UBS</text><rect x="605.7" y="45.0" width="57.8" height="125.0" rx="2" class="b-normal"/><text x="634.6" y="39.0" class="bval">20</text><text x="634.6" y="192" class="blab">保守</text><rect x="702.1" y="40.3" width="57.8" height="129.7" rx="2" class="b-normal"/><text x="731.0" y="34.3" class="bval">20.8</text><text x="731.0" y="192" class="blab">FS最高</text><rect x="798.5" y="32.4" width="57.8" height="137.6" rx="2" class="b-normal"/><text x="827.4" y="26.4" class="bval">22</text><text x="827.4" y="192" class="blab">基準</text><rect x="894.9" y="22.0" width="57.8" height="148.0" rx="2" class="b-peak"/><text x="923.8" y="16.0" class="bval">23.7</text><text x="923.8" y="192" class="blab">樂觀</text></svg></div>
+  <p class="cap">2026 年全年 EPS 的各方估值（元）。米色＝本報告樂觀情境 23.67；粉色＝2025 年實際 12.25。FS＝FactSet 17 位分析師調查（2026/08/06）。</p>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">EPS 基準</th><th>數值（元）</th><th>本益比 @634</th><th style="text-align:left">性質</th></tr></thead><tbody><tr><th class="rh">2025 全年實際</th><td class="n">12.25</td><td class="n negv">51.8 倍</td><td class="l">已成過去式，僅供對照</td></tr><tr class="hlrow"><th class="rh">近四季（TTM）</th><td class="n">15.84</td><td class="n negv">40.0 倍</td><td class="l">Yahoo 顯示 40.15 倍，即目前市場慣用的本益比</td></tr><tr><th class="rh">FactSet 2026 最低</th><td class="n">14.10</td><td class="n negv">45.0 倍</td><td class="l">17 位分析師中的最悲觀估值</td></tr><tr><th class="rh">FactSet 2026 中位數</th><td class="n">16.84</td><td class="n negv">37.6 倍</td><td class="l">2026/08/06 由 16.65 上修</td></tr><tr><th class="rh">FactSet 2026 平均</th><td class="n">17.32</td><td class="n negv">36.6 倍</td><td class="l">由 17.14 上修</td></tr><tr><th class="rh">美林 2026</th><td class="n">18.03</td><td class="n">35.2 倍</td><td class="l">2026/07/17，評等 NEUTRAL、目標價 515</td></tr><tr><th class="rh">UBS 2026</th><td class="n">18.93</td><td class="n">33.5 倍</td><td class="l">2026/07/17，評等 Buy、目標價 628</td></tr><tr><th class="rh">本報告 保守情境</th><td class="n">19.99</td><td class="n">31.7 倍</td><td class="l">Q4 因專用料短缺，出貨較 Q3 下滑</td></tr><tr><th class="rh">FactSet 2026 最高</th><td class="n">20.75</td><td class="n">30.6 倍</td><td class="l">17 位分析師中的最樂觀估值</td></tr><tr class="hlrow"><th class="rh">本報告 基準情境</th><td class="n">22.00</td><td class="n">28.8 倍</td><td class="l">依公司 Q3 指引推算，Q4 小幅季增</td></tr><tr><th class="rh">本報告 樂觀情境</th><td class="n">23.67</td><td class="n posv">26.8 倍</td><td class="l">漲價計畫啟動且產能到位</td></tr><tr><th class="rh">FactSet 2027 中位數</th><td class="n">20.75</td><td class="n">30.6 倍</td><td class="l"><b>低於本報告的 2026 基準情境</b></td></tr><tr><th class="rh">FactSet 2027 平均</th><td class="n">20.40</td><td class="n">31.1 倍</td><td class="l">同上</td></tr></tbody></table></div>
+  <p class="cap">本益比一律以 2026/08/07 收盤價 634 元計算。研華股價於 2026/08/06 盤中曾衝上 <b>672 元</b>的歷史高價後翻黑，若以該價位計算，各項本益比需再上調約 6%。</p>
+  <p>這張表最值得停下來看的是最後兩列：<b>FactSet 對 2027 年的 EPS 中位數（20.75 元），竟然低於本報告對 2026 年的基準估計（22.00 元）</b>。也就是說，如果本報告的基準情境成立，那麼分析師共識的 2027 年預估，等於是預期研華明年獲利<b>比今年衰退</b>。這不太可能是分析師的真實看法，比較合理的解釋是<b>共識模型還沒完全反映 6、7 月的營收跳升</b>。</p>
+
+  <h3>共識預估的內部矛盾：三個檢驗</h3>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">檢驗項目</th><th style="text-align:left">共識隱含的意思</th><th style="text-align:left">與已知事實的對照</th></tr></thead><tbody>
+  <tr><th class="rh">下半年 EPS</th><td class="l">16.84 − 9.05 ＝ <b>7.79 元</b>，比上半年少 14%</td>
+      <td class="fail">公司指引 Q3 營收續創新高、雙率維持。7 月營收已是 H1 月均的 1.45 倍</td></tr>
+  <tr><th class="rh">8–12 月月均營收</th><td class="l">營收中位數 911.8 億 → 月均 <b>66.8 億</b><br>營收平均值 940.0 億 → 月均 <b>72.4 億</b></td>
+      <td class="fail">低於 2026 年 3 月以來任何一個月（最低的 3 月是 76.99 億）；7 月是 112.72 億</td></tr>
+  <tr><th class="rh">目標價</th><td class="l">共識 550 元</td>
+      <td class="fail">8/7 收盤已 634 元，8/6 盤中最高 672 元</td></tr>
+  </tbody></table></div>
+  <p class="cap">共識營收僅最高值 1,088.2 億隱含的月均 102.1 億接近目前實際水準。</p>
+  <div class="key warn">
+    <div class="kt">怎麼解讀這個落差</div>
+    <p><b>不要直接把「共識落後」讀成「所以股價還會漲」。</b>共識落後有兩種可能的收斂方式：分析師上修追上實際（利多），或實際回落追上分析師（利空）。本報告的三情境全部落在共識之上，反映的是<b>「目前的營收與訂單事實」</b>；但這些事實能否延續到 Q4 與 2027 年，本報告無法回答。</p>
+    <p>另外要注意，<b>共識中位數的更新有機械性的延遲</b>——17 位分析師不會同時更新模型，中位數要等到多數人改完才會移動。8/6 的中位數只從 16.65 微調到 16.84（＋1.1%），但同一天個別券商已把目標價從 550 直接跳到 700–800。<b>相信哪一個，取決於你認為「已更新的少數」還是「未更新的多數」比較接近真相。</b></p>
+  </div>
+
+  <h3>目標價回測：分析師一路落後股價</h3>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">來源</th><th>日期</th><th>目標價</th><th>當時股價</th><th style="text-align:left">與 8/7 收盤 634 元的關係</th></tr></thead><tbody><tr><th class="rh">群益證券</th><td class="n">較早（未載明）</td><td class="n">450</td><td class="n muted">—</td><td class="fail">低於現價 29%；同時預估 2026 營收僅 824 億、EPS 14.62，已明顯過時</td></tr><tr><th class="rh">美林（NEUTRAL）</th><td class="n">2026/07/17</td><td class="n">515</td><td class="n">516</td><td class="fail">低於現價 19%；發布當日股價已達標</td></tr><tr><th class="rh">UBS 瑞銀（Buy）</th><td class="n">2026/07/17</td><td class="n">628</td><td class="n">516</td><td class="fail">當時隱含上漲 21.7%，三週後已被股價超越</td></tr><tr class="hlrow"><th class="rh">FactSet 共識目標價</th><td class="n">2026/08/06</td><td class="n">550</td><td class="n">622</td><td class="fail"><b>低於現價 13%</b>；由 530 上調 3.77%，但仍落後股價</td></tr><tr class="hlrow"><th class="rh">法說後個別券商</th><td class="n">2026/08/06</td><td class="n">700–800</td><td class="n">622</td><td class="pass">三家外資 700–750、本土法人上看 800，高於現價 10–26%</td></tr></tbody></table></div>
+  <p class="cap">「當時股價」為各報告發布日的收盤價。8/6 收盤 622 元係由 8/7 收盤 634 元與當日漲幅 +1.93%（+12 元）回推。</p>
+  <p>這是一個很清楚的落後型態：<b>UBS 在 7/17 給 628 元時，股價 516 元，隱含上漲空間 21.7%；三週後股價就漲到 634 元，直接穿過目標價。</b>美林同日給的 515 元，發布當天就已經被股價達標。而 FactSet 共識目標價即使在 8/6 上調 3.77% 到 550 元，仍低於當日收盤價 622 元。</p>
+  <p>這個型態與本系列先前幾檔個股的觀察一致：<b>在股價快速上行的階段，分析師目標價幾乎必然落後，因為目標價是基於「已更新的 EPS 預估 × 給定的本益比倍數」，而 EPS 預估本身就有延遲。</b>因此<b>目標價不適合當成買賣的觸發條件</b>，但目標價與現價的巨大分歧（550 vs 700–800）本身是有資訊量的——它說明<b>市場對「該給幾倍本益比」沒有共識</b>。</p>
+
+  <h3>敏感度測試：獲利對費用率的依賴度</h3>
+  <p class="lead">第三步已經指出，26Q2 漂亮的營益率不是毛利率撐起來的，而是營收暴衝稀釋固定費用的結果。以下測試如果這個槓桿反轉會怎樣。</p>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">敏感度測試（以基準情境為底）</th><th>H2 營益率</th><th>全年 EPS</th><th>前瞻本益比</th><th style="text-align:left">觸發條件</th></tr></thead><tbody><tr class="hlrow"><th class="rh">基準</th><td class="n">19.6%</td><td class="n">22.00</td><td class="n">28.8 倍</td><td class="l">公司指引：毛利率、營益率維持上季水準</td></tr><tr><th class="rh">毛利率再降 1 個百分點</th><td class="n">18.6%</td><td class="n">21.38</td><td class="n">29.7 倍</td><td class="l">專用料漲價無法完全轉嫁</td></tr><tr><th class="rh">費用率回升到 26Q1 水準</th><td class="n negv">17.0%</td><td class="n negv">20.38</td><td class="n negv">31.1 倍</td><td class="l">營收成長減速，營運槓桿反向運作</td></tr><tr><th class="rh">上述兩者同時發生</th><td class="n negv">16.0%</td><td class="n negv">19.76</td><td class="n negv">32.1 倍</td><td class="l">最不利組合，但 EPS 仍優於 FactSet 共識</td></tr></tbody></table></div>
+  <p class="cap">所有情境的營收假設固定在基準情境（全年 1,132.4 億），只調整 H2 營益率。</p>
+  <p>結論是：<b>即使在最不利的組合下（毛利率再降 1 個百分點、且費用率回到 26Q1 的 20.9%），全年 EPS 仍有 19.76 元、前瞻本益比 32.1 倍</b>，依然優於 FactSet 共識的 16.84 元。這說明<b>獲利端的下檔保護，主要來自營收規模本身，而不是利潤率</b>。反過來說，<b>真正的風險不在利潤率，而在營收能不能維持在目前的量級</b>——這正好對應保守情境設定的「供給卡住」。</p>
+
+  <h4>順帶一提：股利的意涵</h4>
+  <p>若基準情境的 22.00 元成立，且維持 2025 年度 91.1% 的高配息率，2027 年配發的股利可能落在 <b>20 元</b>附近，以現價 634 元計算殖利率約 <b>3.2%</b>，明顯優於今年的 1.76%。<b>但這個假設有相當大的不確定性</b>：第三步已確認資本支出高原期至少延續到 2028 年（Tustin、華亞、日本北九州三案合計約 80 億元），公司很可能選擇<b>調降配息率</b>來保留現金。法說會完全沒有談股利政策，這一點目前無從判斷。</p>
+
+  <h3>本步驟結論</h3>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">問題</th><th style="text-align:left">答案</th></tr></thead><tbody>
+  <tr><th class="rh">目前貴不貴？</th><td class="l">看基準不同，答案差很多。<b>TTM 40 倍偏貴，2026 前瞻 28.8 倍屬合理偏高，2027 若能延續成長則更低。</b>關鍵在於你用哪一年的 EPS 當分母，以及你相不相信成長會延續。</td></tr>
+  <tr><th class="rh">法人共識可信嗎？</th><td class="l"><b>2026 年的共識中位數（16.84 元）存在明顯的內部矛盾</b>，隱含下半年獲利低於上半年，與公司指引與已公告的 7 月營收直接衝突。<b>建議以個別券商的法說後更新（EPS 約 20 元、目標價 700–800）作為參考，而非共識中位數。</b></td></tr>
+  <tr><th class="rh">最大的變數是什麼？</th><td class="l"><b>供給，不是需求。</b>7 月 B/B 已回升到 1.64、接單 5.74 億美元創新高，但崑山與台灣廠稼動率都已超過 105%，且 PCB、CPU、Power IC 缺料可能拉長交期。<b>Q4 出貨能力是全年 EPS 的決定因素。</b></td></tr>
+  </tbody></table></div>
+
+  <h4>需要修正的前面步驟</h4>
+  <p>第三步依據 Q2 法說會判斷「B/B 從 1.77 降到 1.44，三大區域全數走低，斜率下降」。<b>這個判斷需要修正</b>：同一場法說會另有揭露<b>7 月接單金額 5.74 億美元創歷史新高、B/B 回升到 1.64</b>。也就是說 Q2 的 1.44 不是趨勢轉折的起點，而是<b>出貨暴增造成的分母效應</b>——這與第四步從月營收得到的結論一致。<b>接單動能並未走弱。</b></p>
+
+  <div class="snap">
+    <b>第五步資料來源與查證等級</b><br>
+    · FactSet 2026–2028 年 EPS 與營收預估（17 位分析師，2026 年 EPS 中位數 16.84／平均 17.32／最高 20.75／最低 14.10；2027 中位數 20.75／平均 20.40；2026 營收中位數 911.81 億／平均 940.0 億／最高 1,088.2 億／最低 803.0 億；共識目標價 550 元、由 530 上調 3.77%）：<a href="https://news.cnyes.com/news/id/6562139">鉅亨網 2026/08/06 Factset 速報</a>、<a href="https://today.line.me/tw/v3/article/1DlZ0Wv">同文 LINE TODAY 版（含完整預估表）</a>、<a href="https://tw.stock.yahoo.com/news/%E7%9B%AE%E6%A8%99%E5%83%B9%E5%96%8A%E5%87%BA550%E5%85%83-%E9%80%99%E5%B7%A5%E6%A5%AD%E9%9B%BB%E8%85%A6%E9%BE%8D%E9%A0%AD-%E6%B3%95%E8%AA%AA%E6%9C%83%E5%A0%B1%E5%96%9C-%E5%A4%96%E8%B3%87%E4%B8%8A%E8%AA%BF2026%E5%B9%B4eps%E9%A0%90%E4%BC%B0%E9%81%9416-84%E5%85%83-094500058.html">FTNN 新聞網 2026/08/06 報導</a>。<br>
+    · UBS 瑞銀（2026/07/17，Buy、目標價 628 元、2026 EPS 18.93／2027 EPS 23.35）與美林（同日，NEUTRAL、目標價 515 元、2026 EPS 18.03／2027 EPS 20.15）、當日股價 516 元、外資持股 35.6%：<a href="https://cmnews.com.tw/article/zhouzhehan-2daa2485-84b8-11f1-a65e-544fb777f059">CMoney 投資網誌 2026/07 文章</a>（第三方整理，<b>非券商原始報告</b>）。<br>
+    · 群益證券目標價 450 元、2026 營收 824 億／EPS 14.62：<a href="https://readmo.cmoney.tw/article/872e0fba-cf05-45b1-9159-6e1e9a65be53">CMoney readmo 文章</a>（<b>未載明報告日期，判斷為較早期版本</b>）。<br>
+    · 法說後個別券商目標價全面上修至 700 元以上（三家外資 700–750、本土法人上看 800）、8/6 盤中最高 672 元、各廠稼動率（崑山 106–110%、台灣 105–110%、日本 95–100%）、下半年不排除再啟動雙位數漲價、專用料缺貨集中在 PCB／CPU／Power IC 且較擔憂 Q4 料況、DDR4 與 SSD 緊張已放緩：<a href="https://www.chinatimes.com/realtimenews/20260806002502-260410">中時新聞網／時報資訊 2026/08/06 報導</a>。<br>
+    · 7 月接單 5.74 億美元創歷史新高、B/B 回升至 1.64、AI 產品營收占比（2025 年 15% → 26H1 22.5% → 全年目標 30%）、邊緣伺服器與雲端基礎設施營收年增逾 100%、邊緣 AI 運算產品成長 30–50%：<a href="https://news.cnyes.com/news/id/6560752">鉅亨網 2026/08/05 法說報導</a>、<a href="https://news.cnyes.com/news/id/6562920">優分析／鉅亨 2026/08/06 分析</a>。<br>
+    · 股價 634 元（2026/08/07 收盤）：見第二步來源標註。<br>
+    · <b>本報告推算項目</b>：三情境的全年營收、H2 營業利益、H2 EPS、全年 EPS 與前瞻本益比；有效稅率 19.0%；業外損益 8.02 億；共識隱含的下半年 EPS 7.79 元與 8–12 月月均營收 66.8／72.4／102.1 億；敏感度測試四組數字；2027 年股利與殖利率試算；8/6 收盤 622 元。<b>以上均為本報告依公開數字計算之推估，非任何機構的正式預測，也不構成投資建議。</b>
+  </div>
 </section>
 
 <section id="step6">
@@ -581,7 +669,7 @@ footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:20px;
 </section>
 
 <footer>
-  2395 研華 · 個股初步分析報告 v1.3 · 生成於 2026-08-10 · 計分視窗 2016–2025<br>
+  2395 研華 · 個股初步分析報告 v1.4 · 生成於 2026-08-10 · 計分視窗 2016–2025<br>
   本報告為財務數據的結構化整理與推理，非投資建議。所有現金流數據由使用者提供，推算欄位已標註。
 </footer>
 
