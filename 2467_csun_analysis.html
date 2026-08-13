@@ -156,8 +156,8 @@ footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:20px;
   <h1 class="title"><span class="code">2467</span>志聖工業</h1>
   <p class="sub">六步驟分析流程。第一步為<b>盲測</b>——在讀完現金流量表數字之前，不查股價、EPS、產業地位與任何新聞背景，避免公司故事影響對財務數字的解讀。</p>
   <div class="meta">
-    <span>報告版本 v4.0</span><span>生成時間 2026-08-13</span>
-    <span>目前進度：第 4 步／共 6 步</span><span>計分視窗 2016–2025</span>
+    <span>報告版本 v5.0</span><span>生成時間 2026-08-13</span>
+    <span>目前進度：第 5 步／共 6 步</span><span>計分視窗 2016–2025</span>
   </div>
 </header>
 
@@ -166,7 +166,7 @@ footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:20px;
   <button class="pad" data-t="step2"><span class="k">02</span>基本資訊</button>
   <button class="pad" data-t="step3"><span class="k">03</span>法說會</button>
   <button class="pad" data-t="step4"><span class="k">04</span>營收趨勢</button>
-  <button class="pad locked" data-t="step5"><span class="k">05</span>前瞻本益比</button>
+  <button class="pad" data-t="step5"><span class="k">05</span>前瞻本益比</button>
   <button class="pad locked" data-t="step6"><span class="k">06</span>投資決策</button>
 </nav>
 
@@ -506,11 +506,99 @@ footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:20px;
 <section id="step5">
   <div class="steptag">第 5 步／共 6 步</div>
   <h2>前瞻本益比／EPS 預估</h2>
-  <div class="pending">尚未執行。將查詢法人對 2026／2027 年 EPS 預估，換算前瞻本益比，並用目標本益比法反推價格區間。</div>
+
+  <div class="key warn">
+    <div class="kt">本步驟重點</div>
+    <p><b>市場其實沒有像表面看起來那麼貴。</b>現價 548 元、近四季本益比 53.35 倍看似驚人，但那是用「已經過時的 EPS」算的。用 2026 全年三情境推估，<b>前瞻本益比落在 29.9～39.1 倍</b>——仍不便宜，但不是泡沫級。</p>
+    <p><span class="negv-t">法人預估嚴重落後。</span>富邦證券 2025 年 11 月的報告，2025 年營收預估準到誤差 0.23%，但 <b>2026 年 EPS 預估 8.22 元、目標價 270 元</b>——志聖上半年 EPS 就已經 7.16 元，現價 548 元<b>已超越該目標價 103%</b>。這是本次分析中最重要的警示：<b>不要把法人共識當錨。</b></p>
+    <p>真正的關鍵不在 2026 年（幾乎已成定局），而在 <b>2027 年</b>。現價隱含的中性倍數 34.3 倍，只有在 2027 年繼續成長時才站得住。</p>
+  </div>
+
+  <h3>先說一件第一步看不到的事</h3>
+  <p class="lead">建模之前必須補上一筆重大投資：2026 年 3 月 20 日，志聖以每股 <b>50.88 元、總額 10.176 億元</b>認購東捷科技（8064）私募普通股 2 萬張，取得 <b>10.82% 股權成為單一最大股東</b>，東捷並加入 G2C+ 聯盟。同年 5 月，志聖總經理<b>梁又文接任東捷董事長</b>。</p>
+  <p>這件事有三個影響：①它是 26H1 投資活動流出 32.8 億的重要組成（約佔三成）；②未來東捷的損益會透過權益法或評價變動影響志聖的<b>業外</b>，讓 EPS 與本業現金流的連動變弱——<b>這會讓第一步規則 5 的判讀更複雜</b>；③G2C+ 從三家變四家，戰略縱深擴大但整合風險同步上升。</p>
+  <p class="cap">資料來源：<a href="https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=944f1c34-4aad-4c33-985a-62de3b149b4f">MoneyDJ 轉載公開資訊觀測站重大訊息</a>（事實發生日 115/03/20）、<a href="https://www.ctee.com.tw/news/20260322700329-430201">工商時報 2026/03/22</a>、<a href="https://wantrich.chinatimes.com/news/20260529900253-420101">旺得富 2026/05/29</a>（董座異動）。此為<b>官方重大訊息，可靠度高</b>。</p>
+
+  <h3>2026 年 EPS 三情境模型</h3>
+  <p class="lead">基礎是<b>已實現的數字</b>：1–7 月營收 62.12 億（實際）、上半年 EPS 7.16 元（實際）、上半年淨利率 21.93%（推算）。只需要估 8–12 月這五個月。</p>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">情境</th><th>8–12 月月均營收</th><th>2026 全年營收</th><th>假設淨利率</th><th>2026 全年 EPS</th></tr></thead><tbody>
+    <tr><th class="rh">保守</th><td class="n">8.69 億（＝近六個月均值）</td><td class="n">105.6 億</td><td class="n">21.0%</td><td class="n">14.03 元</td></tr>
+    <tr class="hlrow"><th class="rh">中性</th><td class="n">10.0 億</td><td class="n">112.1 億</td><td class="n">22.5%</td><td class="n">15.97 元</td></tr>
+    <tr><th class="rh">樂觀</th><td class="n">11.68 億（＝維持 7 月水準）</td><td class="n">120.5 億</td><td class="n">24.0%</td><td class="n">18.31 元</td></tr>
+  </tbody></table></div>
+  <p class="cap"><b>全部為 Claude 自行建模的推算數字，非法人預估。</b>淨利率假設參考實際趨勢：2026 Q1 為 20.61%、Q2 升至 23.00%（推算），故保守情境取略低於上半年平均、樂觀情境取延續 Q2 升勢。股數採 1.58 億股。</p>
+  <h4>獨立交叉檢核</h4>
+  <p>用完全不同的方法驗算一次：2025 年上半年 EPS 2.38 元、全年 5.50 元，<b>下半年是上半年的 1.311 倍</b>。若 2026 年維持相同的季節分布，全年 EPS ＝ 7.16 × 2.311 ＝ <b>16.55 元</b>——落在中性（15.97）與樂觀（18.31）之間。<span class="posv-t">兩種方法互相印證，中性情境 16 元上下是合理中心值。</span></p>
+
+  <div class="chartbox"><svg class="bars" viewBox="0 0 980 200" preserveAspectRatio="xMidYMid meet" role="img"><line x1="8" y1="162.0" x2="972" y2="162.0" class="axis"/><rect x="34.0" y="129.7" width="72.0" height="32.3" rx="2" class="b-normal"/><text x="70.0" y="124.7" class="bval sm">4.35</text><text x="70.0" y="192" class="blab">2021</text><rect x="154.0" y="127.9" width="72.0" height="34.1" rx="2" class="b-normal"/><text x="190.0" y="122.9" class="bval sm">4.59</text><text x="190.0" y="192" class="blab">2022</text><rect x="274.0" y="138.8" width="72.0" height="23.2" rx="2" class="b-trough"/><text x="310.0" y="133.8" class="bval sm">3.12</text><text x="310.0" y="192" class="blab">2023</text><rect x="394.0" y="126.3" width="72.0" height="35.7" rx="2" class="b-normal"/><text x="430.0" y="121.3" class="bval sm">4.8</text><text x="430.0" y="192" class="blab">2024</text><rect x="514.0" y="121.1" width="72.0" height="40.9" rx="2" class="b-normal"/><text x="550.0" y="116.1" class="bval sm">5.5</text><text x="550.0" y="192" class="blab">2025</text><rect x="634.0" y="57.8" width="72.0" height="104.2" rx="2" class="b-normal"/><text x="670.0" y="52.8" class="bval sm">14.03</text><text x="670.0" y="192" class="blab">26E保守</text><rect x="754.0" y="43.4" width="72.0" height="118.6" rx="2" class="b-normal"/><text x="790.0" y="38.4" class="bval sm">15.97</text><text x="790.0" y="192" class="blab">26E中性</text><rect x="874.0" y="26.0" width="72.0" height="136.0" rx="2" class="b-peak"/><text x="910.0" y="21.0" class="bval sm">18.31</text><text x="910.0" y="192" class="blab">26E樂觀</text></svg></div>
+  <p class="cap">前五根為實際年度 EPS（來源：使用者提供之 Goodinfo 截圖）；後三根為<b>本報告推算的情境值，不是法人預估</b>。米色＝最高、粉色＝最低。單位：元。</p>
+  <p>圖形說明了一件事：<b>2026 年的 EPS 不是「成長」，是跳出過去五年的整個區間</b>。2021–2025 年 EPS 都在 3.12–5.50 之間，2026 年即使按保守情境也是 14.03——<span class="posv-t">是過去五年最高值的 2.55 倍</span>。</p>
+
+  <h3>前瞻本益比：現在貴不貴？</h3>
+  <p class="lead">前瞻本益比＝<b>現在股價 ÷ 預估 EPS</b>，回答「以現價買進，相當於用幾倍的未來獲利在買」。</p>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">基準</th><th>EPS</th><th>本益比（現價 548 元）</th><th class="rh">說明</th></tr></thead><tbody>
+    <tr><th class="rh">近四季（已實現）</th><td class="n">10.27</td><td class="n negv">53.35 倍</td><td class="l">鉅亨網公告值，含 2025 年下半年的低基期</td></tr>
+    <tr><th class="rh">2026 保守</th><td class="n">14.03</td><td class="n">39.1 倍</td><td class="l">推算</td></tr>
+    <tr class="hlrow"><th class="rh">2026 中性</th><td class="n">15.97</td><td class="n">34.3 倍</td><td class="l">推算</td></tr>
+    <tr><th class="rh">2026 樂觀</th><td class="n">18.31</td><td class="n">29.9 倍</td><td class="l">推算</td></tr>
+  </tbody></table></div>
+  <p class="cap">現價為 2026/08/13 收盤 548.00 元（<a href="https://www.cnyes.com/twstock/2467/research/finirating">鉅亨網</a>，非即時報價）。同日該頁顯示本益比 53.35 倍、近四季 EPS 10.27 元、52 週高 692／低 156.50。</p>
+  <p><b>53 倍與 34 倍是同一家公司的兩種算法。</b>差別在分母：前者用的是含 2025 年低基期的滾動四季，後者用的是 2026 年全年。隨著 2026 年下半年財報陸續認列，滾動本益比會<b>自動往下掉</b>——即使股價不動。這是高成長股在轉折期常見的視覺陷阱，看到 53 倍就喊貴會錯過分母的變化，但只看 30 倍就喊便宜也危險。</p>
+
+  <h3>目標本益比法：合理價可能落在哪？</h3>
+  <p class="lead"><b>這與前瞻本益比不是同一件事</b>：前瞻本益比是「已知股價，求隱含倍數」；目標本益比法是「已知倍數，求目標價」。後者對「倍數怎麼選」極度敏感，<b>沒有標準答案，只是敏感度試算、不是預測</b>。</p>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">假設倍數</th><th>20 倍</th><th>25 倍</th><th>30 倍</th><th>35 倍</th><th>40 倍</th></tr></thead><tbody>
+    <tr><th class="rh">保守 EPS 14.03</th><td class="n">281</td><td class="n">351</td><td class="n">421</td><td class="n">491</td><td class="n">561</td></tr>
+    <tr class="hlrow"><th class="rh">中性 EPS 15.97</th><td class="n">319</td><td class="n">399</td><td class="n">479</td><td class="n">559</td><td class="n">639</td></tr>
+    <tr><th class="rh">樂觀 EPS 18.31</th><td class="n">366</td><td class="n">458</td><td class="n">549</td><td class="n">641</td><td class="n">732</td></tr>
+  </tbody></table></div>
+  <p class="cap">單位：元。全部為推算數字。<b>現價 548 元</b>落在「中性 × 34.3 倍」的位置，也大約等於「保守 × 39 倍」或「樂觀 × 30 倍」。</p>
+  <p>怎麼讀這張表：如果你認為志聖在 2027 年後成長會放緩、應該用一般設備股的 20–25 倍評價，<b>那現價已高估四到七成</b>；如果你認為它已重定位為 AI 供應鏈結構性參與者、值得 35–40 倍，<b>那現價仍在區間內甚至略低</b>。<b>差別完全在你怎麼看 2027 年，不在數學。</b></p>
+
+  <h3>法人預估的準確度回測</h3>
+  <div class="key warn">
+    <div class="kt">這是本步驟最該記住的部分</div>
+    <p>富邦證券於 2025 年 11 月發布報告，給予「買進」評等、<b>目標價 270 元</b>。以下是逐項對照：</p>
+  </div>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">項目</th><th>富邦預估（2025/11）</th><th>實際／本報告推估</th><th class="rh">落差</th></tr></thead><tbody>
+    <tr><th class="rh">2025 年營收</th><td class="n">60.88 億</td><td class="n">61.02 億（實際）</td><td class="pass">✅ 誤差僅 0.23%</td></tr>
+    <tr><th class="rh">2025 年 EPS</th><td class="n">5.08 元</td><td class="n">5.50 元（實際）</td><td class="fail">低估 8.3%</td></tr>
+    <tr><th class="rh">2026 年營收</th><td class="n">77.29 億</td><td class="n">112.1 億（中性推估）</td><td class="fail">低估 31.1%</td></tr>
+    <tr class="hlrow"><th class="rh">2026 年 EPS</th><td class="n">8.22 元</td><td class="n">15.97 元（中性推估）</td><td class="fail">低估 48.5%</td></tr>
+    <tr><th class="rh">目標價</th><td class="n">270 元</td><td class="n">548 元（現價）</td><td class="fail">現價已超越 103%</td></tr>
+  </tbody></table></div>
+  <p class="cap">富邦預估數字來源：<a href="https://aigc-note.cmoney.tw/answer/2026%E5%B9%B4e-95-12460425">CMoney 引述富邦證券報告</a>（2025 年 11 月）。2025 年實際值來自使用者提供之 Goodinfo 截圖與法說會；2026 年為本報告推算，<b>非法人數字</b>。</p>
+  <p><b>這個回測揭露了一個很具體的模式</b>：對<span class="posv-t">已經接近完成的年度</span>（2025），法人預估非常準；但對<span class="negv-t">處在轉折點的下一年度</span>（2026），法人低估了近五成。原因不難理解——2025 年 11 月時，志聖的月營收還在 5–6 億震盪，沒有人能從那組數字外推出 2026 年 7 月的 11.68 億。<b>轉折發生在資料之外，模型追不上。</b></p>
+  <p class="lead">值得注意的是，這個偏誤在本次分析中<b>是往上的</b>（法人低估、股價衝過目標價），但同一個機制<b>反過來也成立</b>：當動能反轉時，法人上修過的樂觀預估同樣會追不上下修的速度。<b>不要因為這次法人低估，就推論法人永遠低估。</b></p>
+
+  <h3>2027 年：資料誠實地不足</h3>
+  <p><b>我沒有找到可靠的 2027 年（N+2）法人共識預估。</b>鉅亨網的 FactSet 市場預期頁面（<a href="https://www.cnyes.com/twstock/2467/research/finirating">券商評等／預估</a>）為 JavaScript 動態載入，本次無法取得表格內容；富邦報告只做到 2026 年。<b>依規則，不硬湊數字。</b></p>
+  <p>目前僅能提供三個<b>已知的結構性線索</b>，供你自行判斷 2027 年：</p>
+  <ul>
+    <li><b>產能已鎖定到 2027 年</b>：法說會表示現有產能足以支應 2026–2027 兩年訂單。這代表 2027 年的成長天花板來自既有產能，<b>新廠（水湳、精科二廠）要 2027 年後才貢獻</b>。</li>
+    <li><b>資本支出規模持續上修</b>：法說會揭露 14.8 億廠房投資，另有第三方報告指擴建與南屯廠房購置總額<b>逾 29 億元</b>（<a href="https://vocus.cc/article/69f4291afd89780001dcac54">來源為付費專欄摘要，可靠度低、未能證實</a>），加上 10.176 億入股東捷（<b>已由重大訊息證實</b>）。2026 年的投資規模明顯大於 2025 年。</li>
+    <li><b>合約負債是最好的領先指標</b>：2026 Q1 約 22.85 億（推算），論壇稱 Q2 達 30 億。<b>這個數字的季增率若轉負，就是 2027 年動能放緩的第一個訊號</b>，而且會比營收早三到六個月出現。</li>
+  </ul>
+  <p class="lead">有一份 2026 年 5 月的付費專欄報告（現價 609 元時）判斷市場當時已在交易 2027 年的樂觀預期。<b>我無法驗證該報告的完整內容（付費牆），僅列為市場觀點之一，不採為結論。</b></p>
+
+  <div class="snap">
+    <b>本步驟資料來源與性質分級</b>：<br>
+    · <b>實際數字</b>｜2026 H1 EPS 7.16、1–7 月營收 62.12 億 → <a href="https://news.cnyes.com/news/id/6566351">鉅亨網 2026/08/08</a>｜2021–2025 年 EPS → 使用者提供之 Goodinfo 截圖｜現價 548 元、本益比 53.35 倍、近四季 EPS 10.27 元 → <a href="https://www.cnyes.com/twstock/2467/research/finirating">鉅亨網</a>（2026/08/13 收盤）｜東捷私募認購 10.176 億、持股 10.82% → <a href="https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=944f1c34-4aad-4c33-985a-62de3b149b4f">MOPS 重大訊息</a><br>
+    · <b>法人預估</b>｜2025/2026 營收與 EPS 預估、目標價 270 元 → <a href="https://aigc-note.cmoney.tw/answer/2026%E5%B9%B4e-95-12460425">富邦證券報告（CMoney 轉述，2025/11）</a><br>
+    · <b>Claude 推算</b>｜2026 三情境營收／淨利率／EPS、前瞻本益比、目標本益比矩陣、H2/H1 交叉檢核、各項落差百分比。<b>全部為本報告自行建模，不是任何機構的預估</b><br>
+    · <b>未能取得</b>｜FactSet 2027 年共識（頁面動態載入，抓不到）｜29 億擴建總額（付費專欄，未證實）<br>
+    <b>提醒</b>：股價為收盤快照、非即時報價；本報告不構成投資建議。
+  </div>
+</section>
+
+<section id="step6">
+  <div class="steptag">第 6 步／共 6 步</div>
+  <h2>投資決策推理</h2>
+  <div class="pending">依流程設計，此步驟僅在使用者主動詢問時執行。</div>
 </section>
 
 <footer>
-  2467 志聖工業 · 台股個股初步分析 · 報告版本 v4.0 · 生成於 2026-08-13<br>
+  2467 志聖工業 · 台股個股初步分析 · 報告版本 v5.0 · 生成於 2026-08-13<br>
   本報告為分析框架練習，非投資建議。所有現金流數字由使用者提供，請以公開資訊觀測站正式財報為準。
 </footer>
 
