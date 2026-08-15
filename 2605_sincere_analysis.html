@@ -155,12 +155,12 @@ footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:20px;
   <h1 class="title"><span class="code">2605</span>新興</h1>
   <p class="sub">六步驟分析流程。第一步為<b>盲測</b>——在讀完現金流量表數字之前，不查股價、產業地位與任何新聞背景，避免公司故事影響對財務數字的解讀。</p>
   <div class="meta">
-    <span>報告版本 v4.0</span><span>生成時間 2026-08-15</span>
-    <span>目前進度 第 4 步已完成</span><span>計分視窗 2016–2025</span>
+    <span>報告版本 v5.0</span><span>生成時間 2026-08-15</span>
+    <span>目前進度 第 5 步已完成</span><span>計分視窗 2016–2025</span>
   </div>
 </header>
 
-<nav class="stepnav" aria-label="步驟導覽"><button class="pad active" data-t="step1"><span class="k">01</span>現金流六大規則</button><button class="pad" data-t="step2"><span class="k">02</span>基本資訊</button><button class="pad" data-t="step3"><span class="k">03</span>法說會</button><button class="pad" data-t="step4"><span class="k">04</span>營收趨勢</button><button class="pad locked" data-t="step5"><span class="k">05</span>前瞻本益比</button><button class="pad locked" data-t="step6"><span class="k">06</span>投資決策</button></nav>
+<nav class="stepnav" aria-label="步驟導覽"><button class="pad active" data-t="step1"><span class="k">01</span>現金流六大規則</button><button class="pad" data-t="step2"><span class="k">02</span>基本資訊</button><button class="pad" data-t="step3"><span class="k">03</span>法說會</button><button class="pad" data-t="step4"><span class="k">04</span>營收趨勢</button><button class="pad" data-t="step5"><span class="k">05</span>前瞻本益比</button><button class="pad locked" data-t="step6"><span class="k">06</span>投資決策</button></nav>
 
 <section id="step1">
   <div class="steptag">第 1 步／共 6 步</div>
@@ -626,11 +626,134 @@ footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:20px;
 <section id="step5">
   <div class="steptag">第 5 步／共 6 步</div>
   <h2>前瞻本益比／EPS 預估</h2>
-  <div class="pending">尚未開始。</div>
+
+  <div class="key">
+    <div class="kt">本步驟重點</div>
+    <p><b>同一個股價，本益比可以是 6.2 倍也可以是 15.0 倍，差別只在分母要不要算賣船。</b>以 32.35 元計算：用含賣船的 2026 推估 EPS（5.21 元）算是 <b>6.2 倍</b>，看起來極度便宜；扣掉賣船只看本業（2.92 元）是 <b>11.1 倍</b>；再推到 2027 年本業（約 2.15 元）則是 <span class="negv-t">15.0 倍</span>。</p>
+    <p><b>本次未查到 Q2 財報公布後的任何新法人預估。</b>手上兩份都是 4～5 月的舊資料。回測顯示一件有意思的事：<b>公司自己的預估比券商準</b>——法說會預告的處分利益 4,273 萬美元，實際 4,250 萬，誤差 0.5%。</p>
+    <p><b>一個容易被忽略的正面因素：股利。</b>若 2026 年 EPS 落在 5.21 元、按歷史 50～69% 的配發率推估，現金股利可能有 <b>2.6～3.6 元</b>，對應殖利率 <b>8.0～11.1%</b>。這是本檔目前最具體的下檔支撐，但配發政策未經公司說明，屬推算。</p>
+  </div>
+
+  <h3>先講清楚兩個名詞（不要混用）</h3>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">名詞</th><th>公式</th><th class="rh">回答的問題</th></tr></thead><tbody>
+  <tr><th class="rh">前瞻本益比</th><td class="l">現在股價 ÷ 預估 EPS</td><td class="l"><b>「現在貴不貴？」</b>已知股價，求市場隱含的倍數</td></tr>
+  <tr><th class="rh">目標本益比法</th><td class="l">預估 EPS × 假設的合理倍數</td><td class="l"><b>「合理價可能落在哪？」</b>已知倍數，求目標價</td></tr>
+  </tbody></table></div>
+  <p class="cap">兩者是同一條公式的兩種用法，<b>不是同一件事</b>。目標本益比法的結果對「倍數怎麼選」高度敏感，沒有標準答案，只是敏感度試算、不是預測。</p>
+
+  <h3>EPS 預估：自建模型（非法人預估）</h3>
+  <p class="lead"><b>本次搜尋未找到 2026 年 8 月 11 日 Q2 財報公布後的任何新券商預估</b>，也<b>完全找不到 2027 年（N+2）的法人 EPS 預估</b>。因此以下模型由本報告自行推算，<b>不是市場共識</b>，請當成「用已知條件推出來的一組情境」而非預測。</p>
+  <h4>2026 年</h4>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">2026 全年推估（億元）</th><th>保守</th><th>基準</th><th>樂觀</th><th class="rh">假設</th></tr></thead><tbody>
+  <tr><th class="rh">上半年本業稅前（實際）</th><td class="n">10.16</td><td class="n">10.16</td><td class="n">10.16</td><td class="l">23.60 稅前 − 13.44 處分利益</td></tr>
+  <tr><th class="rh">下半年本業稅前</th><td class="n">8.64</td><td class="n">10.16</td><td class="n">11.68</td><td class="l">相對上半年 ×0.85／×1.0／×1.15</td></tr>
+  <tr><th class="rh">下半年稅後（稅率 11.2%）</th><td class="n">7.67</td><td class="n">9.02</td><td class="n">10.37</td><td class="l">賣船稅金已於 Q1 提前認列</td></tr>
+  <tr><th class="rh">上半年稅後（實際）</th><td class="n">21.48</td><td class="n">21.48</td><td class="n">21.48</td><td class="l">官方財報</td></tr>
+  <tr class="hlrow"><th class="rh">全年 EPS（元）</th><td class="n posv">4.98</td><td class="n posv">5.21</td><td class="n posv">5.44</td><td class="l">÷ 5.853 億股</td></tr>
+  <tr><th class="rh">其中：賣船貢獻</th><td class="fail">2.29</td><td class="fail">2.29</td><td class="fail">2.29</td><td class="l">13.44 億 ÷ 5.853 億股</td></tr>
+  <tr class="hlrow"><th class="rh">其中：本業 EPS</th><td class="n">2.69</td><td class="n">2.92</td><td class="n">3.15</td><td class="l"><b>這才是可重複發生的部分</b></td></tr>
+  </tbody></table></div>
+  <p class="cap">全部為<b>推算數字</b>。下半年係數的依據：船隊從 15 艘減為 14 艘、VLCC 從 3 艘減為 2 艘（減項），但 7 月營收 4.79 億元高於 26Q2 月均 4.43 億元、且 2026 年有 5 艘船塢修（增減互見）。基準情境的 5.21 元<b>與 5 月 15 日某法人估的 5.24 元幾乎重合</b>，屬獨立推算後的巧合性互相印證。</p>
+
+  <h4>2027 年</h4>
+  <p>2027 年有一個<b>已經簽約、只等交船</b>的確定事件：VLCC 美生輪預計 2027 年 1～2 月交船，獲利約 4,400 萬美元，貢獻稅前 EPS 約 2.37 元，認列於 2027 年第一季。</p>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">2027 年推估</th><th>數值</th><th class="rh">推算依據</th></tr></thead><tbody>
+  <tr><th class="rh">VLCC 艘數</th><td class="n negv">Q1 為 2 艘，Q2 起剩 1 艘</td><td class="l">美生輪交船後</td></tr>
+  <tr><th class="rh">全年平均 VLCC 艘數</th><td class="n">約 1.25 艘</td><td class="l">2026 年約 2.3 艘，<b>年減約 46%</b></td></tr>
+  <tr><th class="rh">本業稅前（推估）</th><td class="n">約 14.2 億</td><td class="l">VLCC 佔本業獲利約 75%，按艘數比例縮減；加計 MR 油輪全年貢獻</td></tr>
+  <tr><th class="rh">本業稅後 EPS</th><td class="n">約 2.15 元</td><td class="l">稅率 11.2%</td></tr>
+  <tr><th class="rh">加：美生輪處分（稅後估）</th><td class="fail">約 2.10 元</td><td class="l">稅前 EPS 2.37 元，扣稅後估</td></tr>
+  <tr class="hlrow"><th class="rh">2027 合併 EPS（推估）</th><td class="n posv">約 4.25 元</td><td class="l"><b>其中一半又是賣船</b></td></tr>
+  </tbody></table></div>
+  <p class="cap"><b>推算數字，不確定性極高。</b>最大的變數是運價假設——本模型假設 2027 年各船型日均收入維持 2026 年水準。若 VLCC 日租金回落到法說會揭露的 2025 年區間（4.0～6.0 萬美元，26H1 實際為 8.68 萬美元），本業 EPS 會大幅低於 2.15 元。</p>
+
+  <div class="chartbox"><svg class="bars" viewBox="0 0 980 250" preserveAspectRatio="xMidYMid meet" role="img"><line x1="8" y1="214.0" x2="972" y2="214.0" class="axis"/><rect x="83.8" y="121.6" width="83.2" height="92.4" rx="2" class="b-s1"/><text x="125.4" y="116.6" class="bval sm">1.45</text><rect x="173.0" y="214.0" width="83.2" height="0.0" rx="2" class="b-s2"/><text x="214.6" y="209.0" class="bval sm">0</text><text x="170.0" y="244" class="blab">2025 實際</text><rect x="403.8" y="28.0" width="83.2" height="186.0" rx="2" class="b-s1"/><text x="445.4" y="23.0" class="bval sm">2.92</text><rect x="493.0" y="68.1" width="83.2" height="145.9" rx="2" class="b-s2"/><text x="534.6" y="63.1" class="bval sm">2.29</text><text x="490.0" y="244" class="blab">2026 推估</text><rect x="723.8" y="77.0" width="83.2" height="137.0" rx="2" class="b-s1"/><text x="765.4" y="72.0" class="bval sm">2.15</text><rect x="813.0" y="80.2" width="83.2" height="133.8" rx="2" class="b-s2"/><text x="854.6" y="75.2" class="bval sm">2.1</text><text x="810.0" y="244" class="blab">2027 推估</text></svg></div>
+  <div class="legend"><span><i class="sw s1"></i>本業 EPS</span><span><i class="sw s2"></i>賣船貢獻 EPS</span></div>
+  <p class="cap">單位：元。2025 為實際值（該年沒有賣船），2026、2027 為本報告推算。<b>連續兩年，賣船都佔了 EPS 的四成到五成。</b></p>
+  <p>這張圖是整份報告的縮影。2025 年沒賣船，EPS 就是 1.45 元。2026 與 2027 各有一次賣船，帳面 EPS 跳到 5 元與 4.25 元。<b>本業 EPS 從 1.45 → 2.92 → 2.15</b>：確實比 2025 年好，但<b>2027 年因為 VLCC 只剩一艘，本業是往下走的</b>。</p>
+
+  <h3>前瞻本益比：同一個股價，四種答案</h3>
+  <div class="chartbox"><svg class="bars" viewBox="0 0 980 220" preserveAspectRatio="xMidYMid meet" role="img"><line x1="8" y1="186.0" x2="972" y2="186.0" class="axis"/><rect x="70.0" y="119.9" width="120.0" height="66.1" rx="2" class="b-trough"/><text x="130.0" y="112.9" class="bval">6.2 倍</text><text x="130.0" y="214" class="blab">2026 合併 EPS</text><rect x="310.0" y="67.6" width="120.0" height="118.4" rx="2" class="b-normal"/><text x="370.0" y="60.6" class="bval">11.1 倍</text><text x="370.0" y="214" class="blab">2026 本業 EPS</text><rect x="550.0" y="104.9" width="120.0" height="81.1" rx="2" class="b-normal"/><text x="610.0" y="97.9" class="bval">7.6 倍</text><text x="610.0" y="214" class="blab">2027 合併 EPS</text><rect x="790.0" y="26.0" width="120.0" height="160.0" rx="2" class="b-peak"/><text x="850.0" y="19.0" class="bval">15 倍</text><text x="850.0" y="214" class="blab">2027 本業 EPS</text></svg></div>
+  <p class="cap">以 2026-08-14 收盤價 32.35 元計算。粉色＝最便宜的看法（6.2 倍），米色＝最貴的看法（15.0 倍）。</p>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">分母採用</th><th>EPS（元）</th><th>前瞻本益比</th><th class="rh">這個數字在說什麼</th></tr></thead><tbody>
+  <tr><th class="rh">2026 合併（含賣船）</th><td class="n">5.21</td><td class="n posv">6.2 倍</td><td class="l">財經網站與多數報導會用的口徑，<b>看起來極便宜</b></td></tr>
+  <tr class="hlrow"><th class="rh">2026 本業（扣賣船）</th><td class="n">2.92</td><td class="n">11.1 倍</td><td class="l"><b>還原後的真實估值</b></td></tr>
+  <tr><th class="rh">2027 合併（含美生輪）</th><td class="n">約 4.25</td><td class="n">7.6 倍</td><td class="l">明年帳面仍會很好看</td></tr>
+  <tr><th class="rh">2027 本業</th><td class="n">約 2.15</td><td class="n negv">15.0 倍</td><td class="l"><b>賣船紅利用完之後的樣子</b></td></tr>
+  </tbody></table></div>
+  <p class="cap">另可對照鉅亨網頁面顯示的<b>本益比 6.61 倍</b>（以近四季 EPS 4.90 元計算，含賣船），與本表第一列同一口徑、數值接近。</p>
+  <p>對照第二步查到的<b>同業平均本益比</b>：Yahoo 股市頁面在 2026/06/22 快照顯示航運同業平均 27.01 倍、2026/08/10 快照顯示 29.44 倍。<span class="negv-t">但航運類股包含貨櫃、航空等特性差異極大的公司，同業平均對散裝／油輪業者的參考價值有限</span>，此處僅作背景資訊，不用於推導目標價。</p>
+
+  <h3>目標本益比法：合理價可能落在哪</h3>
+  <p class="lead">景氣循環股有一個反直覺的估值特性：<b>獲利高點時通常給低倍數、獲利低點時給高倍數</b>，因為市場預期均值回歸。以下兩組試算刻意分開，避免混用。</p>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">用 2026 本業 EPS 2.92 元</th><th>8 倍</th><th>10 倍</th><th>12 倍</th><th>15 倍</th></tr></thead><tbody>
+  <tr><th class="rh">目標價（元）</th><td class="n">23.4</td><td class="n">29.2</td><td class="n posv">35.0</td><td class="n posv">43.8</td></tr>
+  <tr><th class="rh">相對現價 32.35 元</th><td class="n negv">-27.7%</td><td class="n negv">-9.7%</td><td class="n posv">+8.2%</td><td class="n posv">+35.4%</td></tr>
+  </tbody></table></div>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">用 2026 合併 EPS 5.21 元</th><th>5 倍</th><th>6 倍</th><th>8 倍</th><th>10 倍</th></tr></thead><tbody>
+  <tr><th class="rh">目標價（元）</th><td class="n">26.1</td><td class="n">31.3</td><td class="n posv">41.7</td><td class="n posv">52.1</td></tr>
+  <tr><th class="rh">相對現價 32.35 元</th><td class="n negv">-19.3%</td><td class="n negv">-3.2%</td><td class="n posv">+28.9%</td><td class="n posv">+61.0%</td></tr>
+  </tbody></table></div>
+  <p class="cap">兩組都是<b>敏感度試算，不是預測</b>。同一家公司、同一年度，光是換一個分母與倍數假設，目標價就可以從 23.4 元排到 52.1 元——<b>這正是為什麼看到「目標價 45 元」「目標價 50 元」時，一定要問它用的是哪個 EPS 和幾倍。</b></p>
+
+  <h4>另一個角度：股價淨值比</h4>
+  <p>對獲利波動極大的循環股，股價淨值比往往比本益比穩定。鉅亨網顯示每股淨值 <b>27.14 元</b>、股價淨值比 <b>1.19 倍</b>。但這個淨值數字很可能還是 Q1 基礎（Q2 財報 8/11 才公布）；<b>若加計 Q2 的 EPS 3.01 元、扣除 7 月發放的現金股利 1 元，每股淨值約為 29.15 元（推算）</b>，對應股價淨值比約 <b>1.11 倍</b>。以一家淨現金約 50.9 億元、負債比僅 23% 的公司來說，這個位置不算貴，但也稱不上明顯低估。</p>
+
+  <h3>股利：被忽略的下檔支撐</h3>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">年度盈餘</th><th>EPS（元）</th><th>隔年配發現金股利（元）</th><th class="rh">配發率</th></tr></thead><tbody>
+  <tr><th class="rh">2023</th><td class="n">0.76</td><td class="n">0.75</td><td class="n">99%</td></tr>
+  <tr><th class="rh">2024</th><td class="n">2.56</td><td class="n">1.30</td><td class="n">51%</td></tr>
+  <tr><th class="rh">2025</th><td class="n">1.45</td><td class="n">1.00</td><td class="n">69%</td></tr>
+  <tr class="hlrow"><th class="rh">2026（推估）</th><td class="n posv">5.21</td><td class="n posv">2.6 – 3.6</td><td class="n">51% – 69%</td></tr>
+  </tbody></table></div>
+  <p class="cap">2023 與 2024 年度的股利金額為<b>推算數字</b>：由現金流量表「發放現金股利」欄位（2024 年 −4.39 億、2025 年 −7.61 億、2026 年帳列 −7.61 億）除以 5.853 億股回推，可能與實際公告值有小幅落差。2025 年度的每股 1 元為公司公告值。</p>
+  <p>若 2026 年 EPS 真的落在 5.21 元、且維持過去的配發率，現金股利可能來到 <b>2.6～3.6 元</b>，以現價 32.35 元計算殖利率 <b>8.0～11.1%</b>——遠高於目前的 3.09%。<span class="negv-t">但這有兩個重要但書</span>：①賣船是一次性利益，公司未必比照本業盈餘配發，這部分<b>沒有任何官方說明</b>；②即使配出來，那也是把賣船換來的現金分掉，<b>公司的賺錢資產同時變少了</b>，不能單純視為「高殖利率股」。</p>
+
+  <h3>法人預估的準確度回測</h3>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">預估來源</th><th>發布時間</th><th>2026 EPS 估</th><th>目標價</th><th class="rh">對照本報告基準推估 5.21 元</th></tr></thead><tbody>
+  <tr><th class="rh">群益證券</th><td class="l">約 2026/04 下旬</td><td class="n">4.38</td><td class="n">45</td><td class="fail">低估約 16%（營收也估 51.87 億，低於第四步推估的 53.8–58.3 億）</td></tr>
+  <tr><th class="rh">某長期追蹤航運類股法人</th><td class="l">2026/05/15</td><td class="n">5.24</td><td class="n">40</td><td class="pass">幾乎重合（差 0.6%）</td></tr>
+  <tr class="hlrow"><th class="rh">公司自己（法說會）</th><td class="l">2026/05/22</td><td class="l">處分利益 4,273 萬美元</td><td class="l">—</td><td class="pass">實際 4,250 萬美元，<b>誤差 0.5%</b></td></tr>
+  <tr><th class="rh">公司自己（法說會）</th><td class="l">2026/03/27</td><td class="l">高登輪貢獻 EPS 約 1.7 元</td><td class="l">—</td><td class="pass">與 5 月公告的稅前 EPS 1.70 元一致</td></tr>
+  </tbody></table></div>
+  <p class="cap">兩份券商／法人預估的目標價出現<b>反向關係</b>：EPS 估得低的給 45 元，EPS 估得高的反而只給 40 元——顯示市場對「賣船利益該給幾倍」沒有共識。</p>
+  <div class="key warn">
+    <div class="kt">第三方彙整內容的可靠度警訊</div>
+    <p>查證過程中發現一件必須揭露的事：<b>同一份群益證券預估（營收 51.87 億元、EPS 4.38 元），在 CMoney 讀墨的兩篇不同文章裡，目標價分別被寫成「45 元」與「50 元」</b>。同一組預估數字不可能對應兩個目標價，代表<span class="negv-t">至少有一篇是錯的，或標題為了流量而改寫</span>。本報告採用同時載明「僅群益證券發布、評價看多、目標價 45 元」的那一篇，但<b>兩篇都無法追溯到券商原始報告，可靠度只能視為低</b>。</p>
+    <p>這也連帶說明為什麼第四步要堅持用累計欄而非單月欄——第三方網站（Win 投資）顯示 2025 年全年營收 <b>45.03 億元</b>，與 Goodinfo 單月加總的 45.02 億元一致，卻與法說會揭露的 <b>44.08 億元</b>不同。<b>兩個第三方來源一致，不代表它們是對的。</b></p>
+  </div>
+
+  <h3>本步驟結論</h3>
+  <p>把第一步到第五步串起來，估值的結論可以用一句話講完：<b>這檔股票現在的便宜，有一半是賣船賣出來的。</b></p>
+  <ul>
+    <li><b>用市場慣用的口徑看，6.2 倍本益比確實便宜</b>，加上潛在的 8～11% 殖利率、1.11 倍股價淨值比、淨現金 50.9 億元、負債比 23%——下檔看起來是有保護的。</li>
+    <li><b>但把賣船抽掉，本益比是 11.1 倍（2026）與 15.0 倍（2027）</b>，對一家本業獲利在 2027 年會因為 VLCC 只剩一艘而下滑的公司來說，這個位置<span class="negv-t">已經不算低估</span>。</li>
+    <li><b>真正的變數只有一個：VLCC 運價。</b>26H1 的 8.68 萬美元／日已經站在 2025 年區間（4.0–6.0 萬）之上，而公司自己對 VLCC 的展望措辭是四種船型裡最保守的。</li>
+  </ul>
+
+  <div class="snap">
+    <b>資料來源：</b><br>
+    · 股價 32.35 元（2026/08/14 收盤）、本益比 6.61 倍、每股淨值 27.14 元、股價淨值比 1.19 倍、發行股數 5.853 億股：<a href="https://www.cnyes.com/twstock/2605">鉅亨網個股總覽</a>，查詢於 2026-08-15。另 <a href="https://tw.stock.yahoo.com/quote/2605.TW">Yahoo 股市</a>於不同時間點抓到 2026/08/10 收盤 33.10 元與 2026/06/22 收盤 31.95 元，<b>三者為不同時點的單一快照，非區間</b>，本節統一採用時間最新的 32.35 元。<br>
+    · 同業平均本益比 27.01 倍（2026/06/22 快照）與 29.44 倍（2026/08/10 快照）：<a href="https://tw.stock.yahoo.com/quote/2605.TW">Yahoo 股市</a><br>
+    · 26H1 稅前 23.60 億、稅後 21.48 億、處分利益 13.44 億、美生輪 2027Q1 交船與 4,400 萬美元／稅前 EPS 2.37 元：<a href="https://finance.ettoday.net/news/3217951">ETtoday 2026-08-11 報導</a><br>
+    · 2025 年稅率 11.2%、法人估 2026 EPS 5.24 元／目標價 40 元：<a href="https://finance.ettoday.net/news/3166446">ETtoday 2026-05-15 報導</a><br>
+    · 群益證券預估（營收 51.87 億、EPS 4.38 元、目標價 45 元）：<a href="https://readmo.cmoney.tw/article/ba7ae13f-9707-4b08-ab29-d2f5dd70d717">CMoney 讀墨文章</a>；<b>另一篇同源但目標價寫成 50 元的文章</b>：<a href="https://readmo.cmoney.tw/article/caccf5f6-6fc1-4c84-a980-7943ad26db61">CMoney 讀墨文章</a>（<b>兩篇皆為第三方彙整，可靠度低，已於正文揭露矛盾</b>）<br>
+    · 公司自估處分利益 4,273 萬美元、高登輪貢獻 EPS 約 1.7 元、VLCC 2025 年日租金區間 4.0–6.0 萬美元、淨現金 50.9 億元、負債比 23%：<a href="https://blog.fugle.tw/post/earnings-call-2605-2026-05-22">富果法說會摘要 2026/05/22</a>、<a href="https://blog.fugle.tw/post/earnings-call-2605-2026-03-27">2026/03/27</a>（<b>AI 生成摘要，可靠度較低</b>）<br>
+    · 2025 年度現金股利 1 元、除息日 2026/06/30：<a href="https://tw.stock.yahoo.com/quote/2605/announcement">Yahoo 股市個股公告</a>；2023、2024 年度股利金額由使用者提供的 Goodinfo 現金流量表截圖「發放現金股利」欄位回推<br>
+    · Win 投資顯示 2025 年全年營收 45.03 億元（與法說會 44.08 億元不符）：<a href="https://winvest.tw/Stock/Symbol/Comment/2605">Win 投資</a>（<b>第三方網站，且頁面含未解析的模板變數如 <code>{{StockMonthlyRevenueChart.Note}}</code>，可靠度低</b>）<br>
+    <b>全部為推算數字：</b>2026 三情境 EPS（4.98／5.21／5.44）、本業與賣船的 EPS 拆分、2027 年全部數字、四組前瞻本益比、兩組目標價試算、每股淨值 29.15 元、股利 2.6–3.6 元與殖利率 8.0–11.1%、歷年配發率。<b>這些不是法人預估，是本報告依已知條件自建的情境模型，不確定性高，最大變數為 VLCC 運價假設。</b><br>
+    <b>未能取得：</b>2026 年 8 月 11 日 Q2 財報公布後的任何新券商預估；<b>任何來源的 2027 年（N+2）法人 EPS 預估</b>——這部分資料確實不存在於本次搜尋結果中，不以推測填補。
+  </div>
+</section>
+
+<section id="step6">
+  <div class="steptag">第 6 步／共 6 步</div>
+  <h2>投資決策推理</h2>
+  <div class="pending">依流程設計，此步驟僅在使用者主動詢問時才執行。</div>
 </section>
 
 <footer>
-  2605 新興 · 個股初步分析報告 v4.0 · 生成於 2026-08-15 · 現金流優先分析框架（六步驟）<br>
+  2605 新興 · 個股初步分析報告 v5.0 · 生成於 2026-08-15 · 現金流優先分析框架（六步驟）<br>
   本報告為分析推理紀錄，非投資建議。所有數字請以公司公告與正式財報為準。
 </footer>
 
