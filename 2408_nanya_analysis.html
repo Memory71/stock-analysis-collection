@@ -155,12 +155,12 @@ footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:20px;
   <h1 class="title"><span class="code">2408</span>南亞科</h1>
   <p class="sub">六步驟分析流程。第一步為<b>盲測</b>——在讀完現金流量表數字之前，不查股價、產業地位與任何新聞背景，避免公司故事影響對財務數字的解讀。使用者提供的截圖雖含股價與 EPS 欄位，本步驟一律不予採用。</p>
   <div class="meta">
-    <span>報告版本 v5.1</span><span>生成時間 2026-08-15</span>
-    <span>目前進度 第 5 步／共 6 步（第 6 步待使用者要求）</span><span>計分視窗 2009–2025（17 個完整年度）</span>
+    <span>報告版本 v6.0 完整版</span><span>生成時間 2026-08-15</span>
+    <span>目前進度 六步驟全部完成</span><span>計分視窗 2009–2025（17 個完整年度）</span>
   </div>
 </header>
 
-<nav class="stepnav" aria-label="步驟導覽"><button class="pad active" data-t="step1"><span class="k">01</span>現金流六大規則</button><button class="pad" data-t="step2"><span class="k">02</span>基本資訊</button><button class="pad" data-t="step3"><span class="k">03</span>法說會</button><button class="pad" data-t="step4"><span class="k">04</span>營收趨勢</button><button class="pad" data-t="step5"><span class="k">05</span>前瞻本益比</button><button class="pad locked" data-t="step6"><span class="k">06</span>投資決策</button></nav>
+<nav class="stepnav" aria-label="步驟導覽"><button class="pad active" data-t="step1"><span class="k">01</span>現金流六大規則</button><button class="pad" data-t="step2"><span class="k">02</span>基本資訊</button><button class="pad" data-t="step3"><span class="k">03</span>法說會</button><button class="pad" data-t="step4"><span class="k">04</span>營收趨勢</button><button class="pad" data-t="step5"><span class="k">05</span>前瞻本益比</button><button class="pad" data-t="step6"><span class="k">06</span>投資決策</button></nav>
 
 <section id="step1">
   <div class="steptag">第 1 步／共 6 步</div>
@@ -643,11 +643,131 @@ footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:20px;
 <section id="step6">
   <div class="steptag">第 6 步／共 6 步</div>
   <h2>投資決策推理</h2>
-  <div class="pending">僅在使用者主動詢問時執行。</div>
+
+  <div class="key warn">
+    <div class="kt">這一步做什麼、不做什麼</div>
+    <p><b>不做的事：</b>本步驟<b>不給買進或賣出建議、不設目標價、不算合理價</b>。Claude 不是投資顧問，也無從得知閱讀者的資金規模、持有成本、時間長度與風險承受度——這四項才是真正決定該不該買的東西，而它們全部不在這份報告裡。</p>
+    <p><b>要做的事：</b>把前五步的發現整理成一個<b>可以自己推下去的決策框架</b>——這檔股票的多空論證各是什麼、整件事最終取決於哪一個前提、那個前提可以用什麼指標追蹤、以及在什麼情況下應該改變想法。</p>
+  </div>
+
+  <h3><span class="rn">◆</span>整件事收斂到一個問題</h3>
+  <div class="key">
+    <div class="kt">唯一真正的分歧點</div>
+    <p style="font-size:17px"><b>DRAM 究竟是不是已經脫離景氣循環？</b></p>
+    <p>五個步驟走下來，所有的多空論證最後都回到這一句。這不是修辭——如果答案是「是」，那麼 6.6 倍的前瞻本益比確實極度便宜、3,466 億元的擴產是必要且會賺回來的、現在的價格只是長期成長的起點。如果答案是「否」，那麼現在就是週期頂附近，低本益比是陷阱，而那 3,466 億元會在最糟的時點變成閒置產能與折舊。</p>
+    <p><b>而這個問題目前無法被證實或證偽</b>，因為關鍵產能要到 2028 年才開出。任何人（包括公司經營層、賣方分析師、以及這份報告）現在給出的答案，都是<b>假設而非結論</b>。</p>
+  </div>
+
+  <h3><span class="rn">◆</span>多空論證並陳</h3>
+  <div class="tw"><table class="grid wide">
+  <thead><tr><th class="rh">面向</th><th style="text-align:left">支持「結構性轉變」的證據</th><th style="text-align:left">支持「仍是景氣循環」的證據</th></tr></thead>
+  <tbody>
+  <tr><th class="rh">歷史數據</th>
+    <td class="l">2013–2025 共 13 年中獲利 11 年，波動度確實低於更早期</td>
+    <td class="l"><b>第 1 步盲測</b>：2009–2025 十七年 A 四度轉負，「沒有斜率、只有波形」；2009–2012 連四年鉅虧累計 1,116 億；「13 年」的起算點剛好切在最慘四年之後</td></tr>
+  <tr><th class="rh">需求性質</th>
+    <td class="l">AI 伺服器與 HBM 對產能的排擠是<b>物理性的</b>，非單純庫存循環；AI 產品占比已逾 20%</td>
+    <td class="l">歷次 DRAM 多頭都曾有「這次不一樣」的敘事（PC、智慧手機、雲端），最終都回歸循環</td></tr>
+  <tr><th class="rh">客戶行為</th>
+    <td class="l"><b>四大客戶掏出 787.2 億元認購私募</b>、持股 10.19%，用真金白銀綁定供應；長約比重達 50%、最長 3 年</td>
+    <td class="l">長約在多頭時壓抑漲價空間，在真正崩盤時歷史上常被重新談判；剩下 50% 現貨部位才是毛利率 79.5% 的主要來源</td></tr>
+  <tr><th class="rh">財務體質</th>
+    <td class="l">負債占總資產僅 16.8%，期末現金 2,176 億元創歷史新高；第 1 步規則六拿下 82 分</td>
+    <td class="l"><b>第 1 步規則四僅 45 分</b>，歷史上四度出現「A 為負＋C 為正」最高警戒；體質好是因為<b>剛募到錢</b>，不是因為循環消失</td></tr>
+  <tr><th class="rh">投資決策</th>
+    <td class="l">1C/1D/1E 自主製程、客製化超高頻寬記憶體（不受 JEDEC 限制）具差異化價值</td>
+    <td class="l"><b>第 1 步規則三</b>：十二次投資中見效六次、未見效六次，<b>命中率 50%，且成敗與投資規模無關</b>——真正決定成果的是「隔年碰上什麼行情」</td></tr>
+  <tr><th class="rh">擴產規模</th>
+    <td class="l">2029 年總產能較目前增 80%～100%，可承接 AI 與邊緣運算需求</td>
+    <td class="l">3,466 億元＝過去八年投資總額的 3.3 倍；<b>產能 2028 年才開出</b>，屆時市況無人能預測；中國廠產能已達南亞科 5 倍</td></tr>
+  <tr><th class="rh">市場共識</th>
+    <td class="l">FactSet 2026 EPS 共識四個月內從 34.87 上修至 58.67，且 7/11 版本尚未反映 7 月營收</td>
+    <td class="l"><b>共識是跟隨者不是領先者</b>——2025 年對 2026 的預估僅 2.67 元，實際半年就 23.38 元；且 <b>2028 共識 47.39 低於 2027 的 59.34</b>，賣方自己內建下滑</td></tr>
+  <tr class="hlrow"><th class="rh">價格行為</th>
+    <td class="l">股價自 2025/02 上漲 11.7 倍，趨勢明確；8/14 收 512 元已收復 7 月跌幅</td>
+    <td class="l"><b>2026/07 營收史上最強月，股價單月跌 20.33%</b>；股價漲幅（11.7 倍）已幾乎等於營收漲幅（12.9 倍），這一輪成長已被價格消化</td></tr>
+  </tbody></table></div>
+
+  <h3><span class="rn">◆</span>先決條件檢核：三個問題決定你適不適合往下想</h3>
+  <p class="lead">在討論價格之前，有三個問題如果答案是否定的，後面的分析對你就沒有意義。</p>
+  <div class="tw"><table class="grid">
+  <thead><tr><th class="rh">問題</th><th style="text-align:left">如果答案是「否」</th></tr></thead>
+  <tbody>
+  <tr><th class="rh">① 你能接受單月 −30% 嗎？</th><td class="l">這不是假設。2026/03 當月振幅 46.6%、2026/07 振幅 52.0%，四次兩位數月跌都發生在<b>營收持續創高的期間</b>。如果無法承受，這檔的波動特性本身就不適合，估值算得再準也沒用。</td></tr>
+  <tr><th class="rh">② 你的持有期能撐過 2028 嗎？</th><td class="l">關鍵產能 2028 年才開出，這個賭注的答案要到那時才揭曉。<b>持有期短於這個時間長度的人，賭的不是公司基本面，而是期間的價格波動</b>——那是另一種遊戲，需要的是不同的分析工具。</td></tr>
+  <tr><th class="rh">③ 你願意在假設被推翻時認錯嗎？</th><td class="l">下方的監控清單只有在「看到訊號就會行動」的前提下才有價值。景氣循環股最典型的虧損模式，是在轉折出現後用「長期看好」說服自己續抱。</td></tr>
+  </tbody></table></div>
+
+  <h3><span class="rn">◆</span>監控清單：可以用來推翻假設的指標</h3>
+  <p class="lead">依<b>靈敏度</b>排序——愈上面的訊號出現得愈早，但雜訊也愈多；愈下面的確認度愈高，但出現時通常已經反映在價格上。</p>
+  <div class="tw"><table class="grid wide">
+  <thead><tr><th class="rh">指標</th><th style="text-align:left">現況（2026/08）</th><th style="text-align:left">警訊門檻</th><th>查證頻率</th></tr></thead>
+  <tbody>
+  <tr><th class="rh">月營收月增率</th><td class="l">2026/07 ＋49.3%；18 個月僅一次月減</td><td class="l"><b>連續兩個月月減</b>——這是最靈敏的訊號，因為 ASP 反轉會先反映在營收</td><td class="n">每月 10 日前</td></tr>
+  <tr><th class="rh">DRAM 現貨報價</th><td class="l">ASP 連續兩季季增六～七十位數百分比</td><td class="l">現貨價轉跌，且合約價跟進——現貨通常領先合約一至兩季</td><td class="n">每週</td></tr>
+  <tr class="hlrow"><th class="rh">毛利率</th><td class="l"><b>26Q2 已達 79.5%</b>，兩季提升 11.6 個百分點</td><td class="l"><b>季減超過 5 個百分點</b>。79.5% 已是極端值，此處空間有限、下行風險大於上行</td><td class="n">每季法說</td></tr>
+  <tr><th class="rh">A ÷ D 比率</th><td class="l"><span class="negv-t">26H1 僅 0.93</span>，低於 1（第 1 步規則五不通過）</td><td class="l">持續低於 1 且下滑 → 獲利未轉為現金，通常是應收與存貨堆積</td><td class="n">每季財報</td></tr>
+  <tr><th class="rh">存貨週轉天數</th><td class="l"><b>未查得</b>（公司自結財報未揭露營運資金明細）</td><td class="l">明顯拉長 → 出貨開始不順的早期訊號</td><td class="n">每季財報附註</td></tr>
+  <tr><th class="rh">2027 資本支出正式數字</th><td class="l">媒體版本矛盾（2,000 多億 vs 200 億），<b>尚待董事會核准</b></td><td class="l">若確認為 2,000 多億，代表當年營業現金流將被全數吃掉，須留意資金來源</td><td class="n">董事會公告</td></tr>
+  <tr><th class="rh">融資活動 C</th><td class="l">26H1 ＋779 億（私募股權）</td><td class="l"><b>若下次轉為純舉債</b>（短借、票券、公司債），即回到第 1 步規則四扣分最重的模式</td><td class="n">每季現金流量表</td></tr>
+  <tr><th class="rh">長約比重</th><td class="l">50%，最長 3 年</td><td class="l">比重下滑，或出現客戶要求重談的消息</td><td class="n">每季法說</td></tr>
+  <tr><th class="rh">私募四大客戶動向</th><td class="l">持股 10.19%，2026/04 完成認購</td><td class="l">減碼或未再續約 → 供應綁定關係鬆動</td><td class="n">股權變動申報</td></tr>
+  <tr><th class="rh">同業擴產進度</th><td class="l">三星、SK 海力士、美光同步擴產；中國廠產能已達南亞科 5 倍</td><td class="l">全球新增產能開出速度快於需求 → 這正是歷史上每一輪崩跌的成因</td><td class="n">每季</td></tr>
+  </tbody></table></div>
+
+  <h3><span class="rn">◆</span>三種情境下會發生什麼</h3>
+  <div class="tw"><table class="grid wide">
+  <thead><tr><th class="rh">情境</th><th style="text-align:left">觸發條件</th><th style="text-align:left">對財務的影響</th><th style="text-align:left">對估值的影響</th></tr></thead>
+  <tbody>
+  <tr><th class="rh">結構論成立</th>
+    <td class="l">AI 需求持續，2028 年新產能開出時仍供不應求</td>
+    <td class="l">A 維持在千億級以上，3,466 億投資獲得回收；第 1 步規則一的「波形」首度出現斜率</td>
+    <td class="l">EPS 站穩 50–80 元區間，本益比可望向上重評價</td></tr>
+  <tr class="hlrow"><th class="rh">循環論成立</th>
+    <td class="l">2027–2028 全球新產能同步開出，ASP 反轉</td>
+    <td class="l"><b>高固定成本槓桿反噬</b>：第 4 步已顯示 2022 年營收 570 億時稅前 169 億、2023 年營收 299 億時稅前 <span class="negv-t">−107 億</span>；新廠折舊將額外壓低獲利</td>
+    <td class="l">EPS 快速回落甚至轉負，<b>屆時沒有本益比可算</b>（2023、2024 即為前例）</td></tr>
+  <tr><th class="rh">中間情境</th>
+    <td class="l">需求成長但速度放緩，供需在 2028 年趨於平衡</td>
+    <td class="l">獲利自高峰回落但維持正值，投資回收期拉長</td>
+    <td class="l">EPS 落在 20–40 元區間，本益比反而「上升」至 13–25 倍</td></tr>
+  </tbody></table></div>
+  <p class="cap">請特別注意中間情境的反直覺之處：<b>即使公司營運沒有變差、只是不再加速，本益比也會因為分母縮小而顯著上升</b>。這就是景氣循環股估值的核心陷阱。</p>
+
+  <h3><span class="rn">◆</span>回頭看第一步的盲測值不值得</h3>
+  <div class="key">
+    <div class="kt">盲測的預言力驗證</div>
+    <p>第 1 步在<b>完全不知道股價、EPS、產業地位、AI 題材、法說會內容</b>的情況下，僅憑十七年現金流數字，做出的判斷是：</p>
+    <p>「<b>這條線沒有斜率，只有波形</b>」「你永遠無法從去年的 A 推論今年的 A」「<b>這檔股票的分析重點不在公司體質好不好，而在現在處於週期的哪個位置</b>」「用單一年度的財務數字做估值，會得到嚴重誤導的結論」。</p>
+    <p>後續四個步驟蒐集了股價、財報、法說會、營收、共識預估等大量資訊，<b>沒有任何一項推翻這個判斷</b>，反而全部在強化它——第 4 步的股價欄位證明價格波動遠大於營收，第 5 步的共識回測證明分析師只是跟隨者，第 3 步的「13 年賺 11 年」證明連公司自己的敘事也需要挑選起算點。</p>
+    <p><b>這正是現金流優先、先做盲測的價值所在</b>：如果先看到 79.5% 的毛利率、11.7 倍的漲幅與「AI 結構性轉變」的敘事，再回頭看現金流，很難不把 2009–2012 的四年鉅虧當成「不同時代的舊事」而輕輕帶過。</p>
+  </div>
+
+  <h3><span class="rn">◆</span>總結</h3>
+  <div class="total">
+    <div><div class="tl">六大規則總分</div><div class="tv">61.8</div></div>
+    <div class="tn">現金流體質勉強過關，但<b>分數本身不是重點</b>——重點是它揭示的個性：一家獲利完全被外部價格週期支配、投資效益命中率僅五成、且在荒年會伸手融資的資本密集廠。</div>
+  </div>
+  <p><b>這份分析能給的最誠實結論是：南亞科現在的價格，反映的是一個尚未發生、且要到 2028 年才能驗證的假設。</b>公司押上 3,466 億元，四大客戶押上 787.2 億元，市場押上 11.7 倍的漲幅。這些人不見得是錯的——但他們押的都是同一件事，而<b>那件事目前只有假設，沒有證據</b>。</p>
+  <p>第 1 步的十七年數據，是這份報告裡<b>唯一已經發生過的證據</b>。它說的是：這條線沒有斜率，只有波形。要相信波形這次會消失，需要的是<b>對未來的判斷</b>，而那個判斷只能由閱讀者自己做，不能外包給任何報告、分析師或經營層。</p>
+
+  <div class="key warn">
+    <div class="kt">免責聲明</div>
+    <p>本報告為財務數據的分析推理過程記錄，<b>不構成投資建議、要約或推薦</b>。Claude 並非持牌投資顧問或財務顧問。所有數字以公司正式財報與公開資訊觀測站公告為準；報告中明確標示為「推算」「推論」「情境模擬」的部分<b>皆非事實</b>，可能有誤。</p>
+    <p>報告中的股價、本益比等市場數據僅為特定時點的快照，會隨時變動。實際投資決策應考量個人財務狀況、風險承受度與投資期間，並在必要時諮詢合格的專業人士。</p>
+  </div>
+
+  <div class="snap">
+    <b>第六步性質說明</b><br>
+    🧠 <b>本步驟不含新的外部資料查證</b>，全部內容由第 1～5 步已蒐集並標註來源的資訊推導而成。<br>
+    🔢 <b>推導基礎</b>：多空論證表的每一列皆對應前五步的具體發現（規則分數、法說會轉述、營收與股價數字、FactSet 共識序列），可回溯至各步驟的資料來源區塊。<br>
+    ⚠️ <b>情境分析為假設性推演</b>，非預測。三種情境的機率分布<b>刻意不予估計</b>——在關鍵變數（2028 年供需）無法觀測的情況下，給出機率數字只會製造虛假的精確感。<br>
+    ⚠️ <b>監控清單中「存貨週轉天數」現況未查得</b>，需待完整季報附註公布後補入。
+  </div>
 </section>
 
 <footer>
-  2408 南亞科 · 個股初步分析報告 v5.1 · 生成於 2026-08-15 · 第 1～5 步完成（第 4 步補入股價對照）<br>
+  2408 南亞科 · 個股初步分析報告 v6.0 完整版 · 生成於 2026-08-15 · 六步驟全部完成<br>
   本報告為分析推理過程記錄，非投資建議。所有數字以官方財報為準。
 </footer>
 
