@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6920 恆勁 — 個股初步分析</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#141C26; --ink-2:#3A4756; --ink-3:#6E7B8A;
+  --paper:#F4F6F4; --card:#FFFFFF; --rule:#DCE2DE;
+  --pos:#1F6F5C; --neg:#B0453B; --peak:#C79A3A; --trough:#D9A6A0;
+  --band:#F2E7D8; --accent:#1F6F5C;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Noto Sans TC",system-ui,sans-serif;font-size:15.5px;line-height:1.75;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px 90px}
+header.hd{padding:52px 0 26px;border-bottom:2px solid var(--ink)}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:14px}
+h1.title{font-family:"Noto Serif TC",serif;font-weight:900;font-size:clamp(30px,5.2vw,50px);
+  line-height:1.14;margin:0 0 8px;letter-spacing:-.01em}
+h1.title .code{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:.56em;
+  color:var(--accent);margin-right:.5em;letter-spacing:0}
+.sub{color:var(--ink-2);max-width:62ch;margin:0}
+.meta{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px 22px;
+  font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink-3)}
+nav.stepnav{position:sticky;top:0;z-index:40;background:rgba(244,246,244,.94);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);
+  margin:0 -22px 34px;padding:9px 22px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:thin}
+.pad{flex:0 0 auto;border:1px solid var(--rule);background:var(--card);border-radius:999px;
+  padding:6px 15px;font-size:13px;color:var(--ink-2);cursor:pointer;white-space:nowrap;
+  font-family:"Noto Sans TC",sans-serif;transition:background .18s,color .18s,border-color .18s}
+.pad .k{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-3);margin-right:6px}
+.pad:hover{border-color:var(--accent);color:var(--accent)}
+.pad.active{background:var(--ink);border-color:var(--ink);color:#fff}
+.pad.active .k{color:#9FB3AA}
+.pad.locked{opacity:.42;cursor:not-allowed;background:transparent}
+.pad.locked:hover{border-color:var(--rule);color:var(--ink-2)}
+.pad:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+section{scroll-margin-top:70px;margin-bottom:52px}
+.steptag{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.16em;
+  color:var(--accent);border:1px solid var(--accent);border-radius:3px;
+  padding:3px 9px;display:inline-block;margin-bottom:14px}
+h2{font-family:"Noto Serif TC",serif;font-weight:700;font-size:27px;margin:0 0 10px;letter-spacing:-.005em}
+h3{font-family:"Noto Serif TC",serif;font-weight:700;font-size:19px;margin:38px 0 8px;
+  padding-top:16px;border-top:1px solid var(--rule)}
+h3 .rn{font-family:"IBM Plex Mono",monospace;color:var(--accent);font-size:15px;margin-right:9px}
+h4{font-size:15px;margin:22px 0 6px;color:var(--ink-2)}
+p{margin:10px 0}
+.lead{color:var(--ink-2)}
+.key{background:#FFFDF6;border-left:5px solid var(--peak);border-radius:0 6px 6px 0;
+  padding:15px 20px;margin:20px 0 26px}
+.key.warn{background:#FDF3F1;border-left-color:var(--neg)}
+.key .kt{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.16em;
+  color:var(--ink-3);text-transform:uppercase;margin-bottom:6px}
+.key p{margin:6px 0}
+.key p:last-child{margin-bottom:0}
+b{font-weight:700}
+.negv-t{color:var(--neg);font-weight:700}
+.posv-t{color:var(--pos);font-weight:700}
+.tw{overflow-x:auto;margin:14px 0 6px;border:1px solid var(--rule);border-radius:6px;background:var(--card)}
+table.grid{border-collapse:collapse;width:100%;font-family:"IBM Plex Mono",monospace;font-size:13px}
+table.grid.wide{min-width:860px}
+table.grid th,table.grid td{padding:7px 9px;border-bottom:1px solid var(--rule);text-align:right;white-space:nowrap}
+table.grid thead th{background:#EEF1EE;font-weight:600;color:var(--ink-2);font-size:12.5px}
+table.grid th.rh{text-align:left;background:#EEF1EE;position:sticky;left:0;z-index:2;
+  font-family:"Noto Sans TC",sans-serif;font-weight:500;font-size:13px}
+table.grid tbody tr:last-child td,table.grid tbody tr:last-child th{border-bottom:none}
+td.n{font-variant-numeric:tabular-nums}
+td.posv{color:var(--pos)}
+td.negv{color:var(--neg)}
+td.muted{color:var(--ink-3)}
+td.pass{color:var(--pos);text-align:left;font-family:"Noto Sans TC",sans-serif}
+td.fail{color:var(--neg);font-weight:600;text-align:left;font-family:"Noto Sans TC",sans-serif}
+td.l{text-align:left;white-space:normal;font-family:"Noto Sans TC",sans-serif;font-size:13.5px;line-height:1.6}
+td.l a{color:var(--accent)}
+tr.qrow{background:#F7F5EF}
+tr.hlrow td,tr.hlrow th{background:#E8ECE9;font-weight:600}
+tr.hlrow th.rh{background:#E8ECE9}
+tr.warnrow td,tr.warnrow th{background:#FBEDEA}
+tr.warnrow th.rh{background:#FBEDEA}
+.chartbox{background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:14px 10px 4px;margin:14px 0 8px}
+svg.bars{width:100%;height:auto;display:block}
+.axis{stroke:#B9C2BB;stroke-width:1}
+.b-normal{fill:#8FA79C}
+.b-peak{fill:var(--peak)}
+.b-trough{fill:var(--trough)}
+.b-s1{fill:#5C7F94}
+.b-s2{fill:#C08A5E}
+.hiband{fill:var(--band)}
+text.bval{font-family:"IBM Plex Mono",monospace;font-size:11px;fill:var(--ink-2);text-anchor:middle}
+text.bval.sm{font-size:10.5px}
+text.blab{font-family:"IBM Plex Mono",monospace;font-size:11.5px;fill:var(--ink-3);text-anchor:middle}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-2);padding:2px 6px 10px}
+.legend i.sw{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.sw.s1{background:#5C7F94} .sw.s2{background:#C08A5E} .sw.band{background:var(--band);border:1px solid var(--rule)}
+.cap{font-size:13px;color:var(--ink-2);margin:6px 0 0;padding-left:2px}
+.scwrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:12px;margin:20px 0}
+.sc{background:var(--card);border:1px solid var(--rule);border-top:4px solid #8FA79C;border-radius:6px;padding:13px 15px}
+.sc.good{border-top-color:var(--peak)}
+.sc.bad{border-top-color:var(--neg)}
+.scn{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.14em;color:var(--ink-3)}
+.scl{font-size:13.5px;color:var(--ink-2);margin:2px 0 6px;min-height:2.6em;line-height:1.3}
+.scv{font-family:"IBM Plex Mono",monospace;font-size:32px;font-weight:600;line-height:1}
+.scb{font-size:12px;color:var(--ink-3);margin-top:2px}
+.total{background:var(--ink);color:#fff;border-radius:8px;padding:26px 28px;margin:26px 0;
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 26px}
+.total .tv{font-family:"IBM Plex Mono",monospace;font-size:56px;font-weight:600;line-height:1}
+.total .tl{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.2em;color:#9FB3AA;text-transform:uppercase}
+.total .tn{color:#D6DEDA;max-width:54ch;font-size:14px}
+ul{padding-left:20px;margin:10px 0} li{margin:5px 0}
+.snap{background:#EEF1EE;border-radius:6px;padding:13px 17px;font-size:13px;color:var(--ink-2);margin:16px 0 0}
+.snap b{color:var(--ink)}
+.snap a{color:var(--accent)}
+.pending{border:1px dashed var(--rule);border-radius:6px;padding:24px;color:var(--ink-3);
+  text-align:center;font-size:14px;background:#FBFCFB}
+footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:20px;
+  font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3)}
+@media(max-width:640px){body{font-size:15px} h2{font-size:22px} .total .tv{font-size:42px}}
+</style>
+</head><body>
+<div class="wrap">
+
+<header class="hd">
+  <div class="eyebrow">台股個股初步分析 · 現金流優先</div>
+  <h1 class="title"><span class="code">6920</span>恆勁</h1>
+  <p class="sub">六步驟分析流程。第一步為<b>盲測</b>——在讀完現金流量表數字之前，不查股價、產業地位與任何新聞背景，避免公司故事影響對財務數字的解讀。使用者提供的截圖雖含年度股價、漲跌幅與稅後 EPS 欄位，<b>本步驟一律不予採用</b>。</p>
+  <div class="meta">
+    <span>報告版本 v1.0</span><span>生成時間 2026-08-17 13:28</span>
+    <span>目前進度 第 1 步／共 6 步</span><span>計分視窗 2020–2025（6 個完整年度）</span>
+  </div>
+</header>
+
+<nav class="stepnav" aria-label="步驟導覽"><button class="pad active" data-t="step1"><span class="k">01</span>現金流六大規則</button><button class="pad locked" data-t="step2"><span class="k">02</span>基本資訊</button><button class="pad locked" data-t="step3"><span class="k">03</span>法說會</button><button class="pad locked" data-t="step4"><span class="k">04</span>營收趨勢</button><button class="pad locked" data-t="step5"><span class="k">05</span>前瞻本益比</button><button class="pad locked" data-t="step6"><span class="k">06</span>投資決策</button></nav>
+
+<section id="step1">
+  <div class="steptag">第 1 步／共 6 步</div>
+  <h2>現金流量表六大規則分析（盲測）</h2>
+
+  <div class="key warn">
+    <div class="kt">本步驟重點</div>
+    <p>六大規則總分 <span class="negv-t">36.4 分</span>，<b>遠低於 60 分關卡，落在「需觀察」區間的深處</b>。</p>
+    <p>最關鍵的一組對照：2020–2025 這六年，<b>營業活動現金流累計只有 <span class="posv-t">+0.83 億</span></b>，但同期<b>現金增資累計 <span class="negv-t">20.87 億</span></b>。<span class="negv-t">公司六年間的現金，幾乎全部來自股東掏錢，而不是本業造血。</span>同期稅前淨利累計 <span class="negv-t">−24.88 億</span>，六年只有 2022 一年獲利。</p>
+    <p><b>三重疊加訊號（A 為負 ＋ B 重度投資 ＋ C 為正或小幅負值）在 6 年中出現 3 次</b>：2020、2021、2023。其中 <b>2023 年風險等級最高</b>——該年 C 的正向來源是<b>短期借款 +2.80 億（純舉債）</b>，不像 2020／2021／2025 是靠現金增資（股權）撐起來的。</p>
+    <p>兩個必須點破的數字陷阱：<b>①</b> 2025 年 B 轉為 <b>+2.50 億</b>，看起來像「停止投資」，實際上是<b>贖回金融資產 +3.40 億</b>造成的，該年固定資產仍投出 0.88 億；<b>②</b> 2025 年期末現金從 1.74 億跳到 6.61 億，來源是<b>現金增資 6.40 億</b>，不是營運改善。</p>
+    <p>唯一的亮點是<b>投資紀律（55 分，六項中最高）</b>：真實資本支出六年都守在 <b>0.84～1.89 億</b>的窄區間，從未失控擴張——這家公司不是被大額資本支出拖垮的，是本業長期不賺現金。</p>
+  </div>
+
+  <h3><span class="rn">§</span>原始數據總表</h3>
+  <p class="lead">以下為使用者提供的 Goodinfo 現金流量表截圖數字，單位皆為新台幣億元。<b>26H1 為 2026 年上半年累計數</b>——其期初餘額 6.61 億與 2025 年期末餘額完全相符，可確認為年初起算的累計數而非單一季度；<b>因非完整年度，六項規則全部不列入計分</b>。</p>
+  <div class="tw"><table class="grid wide"><thead><tr><th class="rh">項目（億元）</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>26H1</th></tr></thead><tbody><tr><th class="rh">A 營業活動</th><td class="n negv">-0.69</td><td class="n negv">-0.16</td><td class="n posv">3.15</td><td class="n negv">-1.54</td><td class="n negv">-0.53</td><td class="n posv">0.6</td><td class="n posv">0.42</td></tr><tr><th class="rh">B 投資活動</th><td class="n negv">-1.14</td><td class="n negv">-3.68</td><td class="n negv">-1.76</td><td class="n negv">-2.8</td><td class="n negv">-0.6</td><td class="n posv">2.5</td><td class="n negv">-0.78</td></tr><tr><th class="rh">C 融資活動</th><td class="n posv">2.11</td><td class="n posv">4.21</td><td class="n posv">6.05</td><td class="n negv">-0.46</td><td class="n negv">-1.16</td><td class="n posv">1.77</td><td class="n negv">-0.9</td></tr><tr><th class="rh">D 稅前淨利</th><td class="n negv">-5.58</td><td class="n negv">-3.96</td><td class="n posv">0.69</td><td class="n negv">-6.53</td><td class="n negv">-4.86</td><td class="n negv">-4.64</td><td class="n posv">0.06</td></tr><tr><th class="rh">E 期末現金餘額</th><td class="n">1.02</td><td class="n">1.39</td><td class="n">8.83</td><td class="n">4.03</td><td class="n">1.74</td><td class="n">6.61</td><td class="n">5.35</td></tr></tbody></table></div>
+  <p class="cap">綠色為正值、紅色為負值。六年中 <b>A 有 4 年為負、D 有 5 年為負</b>。</p>
+
+  <h3><span class="rn">01</span>規則一：營業活動現金流（A）的逐年趨勢</h3>
+  <div class="chartbox"><svg class="bars" viewBox="0 0 1020 280" xmlns="http://www.w3.org/2000/svg" role="img"><rect class="b-normal" x="39.0" y="176.4" width="88.2" height="33.0" rx="1.5"/><text class="bval sm" x="83.1" y="222.4">-0.69</text><rect class="b-normal" x="181.3" y="176.4" width="88.2" height="7.6" rx="1.5"/><text class="bval sm" x="225.4" y="197.1">-0.16</text><rect class="b-peak" x="323.6" y="26.0" width="88.2" height="150.4" rx="1.5"/><text class="bval sm" x="367.7" y="21.0">3.15</text><rect class="b-trough" x="465.9" y="176.4" width="88.2" height="73.6" rx="1.5"/><text class="bval sm" x="510.0" y="263.0">-1.54</text><rect class="b-normal" x="608.2" y="176.4" width="88.2" height="25.3" rx="1.5"/><text class="bval sm" x="652.3" y="214.8">-0.53</text><rect class="b-normal" x="750.5" y="147.8" width="88.2" height="28.7" rx="1.5"/><text class="bval sm" x="794.6" y="142.8">0.6</text><rect class="b-normal" opacity=".45" x="892.7" y="156.4" width="88.2" height="20.1" rx="1.5"/><text class="bval sm" x="936.9" y="151.4">0.42</text><line class="axis" x1="12.0" y1="176.4" x2="1008.0" y2="176.4"/><text class="blab" x="83.1" y="272">2020</text><text class="blab" x="225.4" y="272">2021</text><text class="blab" x="367.7" y="272">2022</text><text class="blab" x="510.0" y="272">2023</text><text class="blab" x="652.3" y="272">2024</text><text class="blab" x="794.6" y="272">2025</text><text class="blab" x="936.9" y="272">26H1</text></svg></div>
+  <p class="cap">米色為高點 2022 年 +3.15 億，粉色為谷底 2023 年 −1.54 億；最右側淺色為 26H1 累計，不計分。</p>
+  <p><b>數字現象：</b>六年中 <span class="negv-t">四年為負值</span>（2020、2021、2023、2024），只有 2022 與 2025 為正，且 2025 年的正值僅 <b>0.60 億</b>。整條線沒有任何累積性的向上斜率——2022 年衝到 +3.15 億後，隔年立刻摔回 −1.54 億，等於前一年的成果一年就吐光。</p>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">觀察區間</th><th>A 累計</th><th>年均</th><th style="text-align:left">說明</th></tr></thead><tbody>
+    <tr><th class="rh">2020–2025 全期（6 年）</th><td class="n posv">0.83</td><td class="n">0.14</td><td class="l">六年下來本業幾乎沒有淨現金產出</td></tr>
+    <tr class="warnrow"><th class="rh">剔除 2022 年後（5 年）</th><td class="n negv">-2.32</td><td class="n negv">-0.46</td><td class="l"><b>唯一一個像樣的正值年拿掉後，其餘五年全部合計為淨流出</b></td></tr>
+    <tr><th class="rh">近三年 2023–2025</th><td class="n negv">-1.47</td><td class="n negv">-0.49</td><td class="l">方向確實在改善（−1.54 → −0.53 → +0.60），但仍未回本</td></tr>
+  </tbody></table></div>
+  <p class="cap">A 的絕對規模全期都在 ±3 億以內，屬於小型現金流公司，任何一筆營運資金變動都足以讓正負翻轉。</p>
+  <p><b>個性標籤：「原地踏步的長跑者」。</b>六年跑下來，起點與終點幾乎在同一個位置（累計 +0.83 億 ≈ 零）。它不是那種大起大落的公司，而是<b>長期在零軸附近上下擺盪、始終沒能把造血能力推上一個新台階</b>的類型。</p>
+  <p><b>評分理由：</b>四年為負、六年累計趨近於零、無中長期方向性。唯一的加分是 2023 → 2025 的連續三年改善斜率，且 2025 年成功轉正，26H1 也維持正值（+0.42 億）。但改善的絕對金額太小，尚不足以證明體質已改變。<b>給 35 分</b>。</p>
+
+  <h3><span class="rn">02</span>規則二：投資活動（B）的投資紀律</h3>
+  <div class="chartbox"><svg class="bars" viewBox="0 0 1020 280" xmlns="http://www.w3.org/2000/svg" role="img"><rect class="b-normal" x="39.0" y="116.6" width="88.2" height="41.3" rx="1.5"/><text class="bval sm" x="83.1" y="170.9">-1.14</text><rect class="b-trough" x="181.3" y="116.6" width="88.2" height="133.4" rx="1.5"/><text class="bval sm" x="225.4" y="263.0">-3.68</text><rect class="b-normal" x="323.6" y="116.6" width="88.2" height="63.8" rx="1.5"/><text class="bval sm" x="367.7" y="193.4">-1.76</text><rect class="b-normal" x="465.9" y="116.6" width="88.2" height="101.5" rx="1.5"/><text class="bval sm" x="510.0" y="231.1">-2.8</text><rect class="b-normal" x="608.2" y="116.6" width="88.2" height="21.7" rx="1.5"/><text class="bval sm" x="652.3" y="151.4">-0.6</text><rect class="b-peak" x="750.5" y="26.0" width="88.2" height="90.6" rx="1.5"/><text class="bval sm" x="794.6" y="21.0">2.5</text><rect class="b-normal" x="892.7" y="116.6" width="88.2" height="28.3" rx="1.5"/><text class="bval sm" x="936.9" y="157.9">-0.78</text><line class="axis" x1="12.0" y1="116.6" x2="1008.0" y2="116.6"/><text class="blab" x="83.1" y="272">2020</text><text class="blab" x="225.4" y="272">2021</text><text class="blab" x="367.7" y="272">2022</text><text class="blab" x="510.0" y="272">2023</text><text class="blab" x="652.3" y="272">2024</text><text class="blab" x="794.6" y="272">2025</text></svg></div>
+  <p class="cap">米色為 2025 年 +2.50 億（B 淨額轉正），粉色為 2021 年 −3.68 億（投資最重的一年）。</p>
+  <p class="lead"><b>但 B 的淨額會騙人。</b>依規則要求拆開細項後，真相是這樣：</p>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">投資活動細項（億元）</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><th class="rh">金融資產（增加）減少</th><td class="n posv">0.07</td><td class="n negv">-1.78</td><td class="n negv">-0.21</td><td class="n negv">-1.96</td><td class="n posv">0.51</td><td class="n posv">3.4</td></tr><tr><th class="rh">固定資產（增加）減少</th><td class="n negv">-1.07</td><td class="n negv">-1.89</td><td class="n negv">-1.54</td><td class="n negv">-0.84</td><td class="n negv">-1.1</td><td class="n negv">-0.88</td></tr><tr><th class="rh">無形資產（增加）減少</th><td class="n negv">-0.13</td><td class="n negv">-0.01</td><td class="n negv">-0.02</td><td class="n ">0</td><td class="n negv">-0.01</td><td class="n negv">-0.02</td></tr><tr class="hlrow"><th class="rh">B 投資活動淨額</th><td class="n negv">-1.14</td><td class="n negv">-3.68</td><td class="n negv">-1.76</td><td class="n negv">-2.8</td><td class="n negv">-0.6</td><td class="n posv">2.5</td></tr></tbody></table></div>
+  <p class="cap"><b>2025 年 B 轉正的唯一原因是「金融資產減少 +3.40 億」（贖回先前買進的金融商品），不是處分廠房、更不是停止投資。</b>該年固定資產仍然投出 0.88 億。同理，2021 年 B 高達 −3.68 億，其中有 1.78 億是拿去買金融資產，真正的資本支出只有 1.89 億。</p>
+  <h4>把「真實資本支出」單獨拉出來看</h4>
+  <div class="chartbox"><svg class="bars" viewBox="0 0 1020 280" xmlns="http://www.w3.org/2000/svg" role="img"><rect class="b-normal" x="43.5" y="123.2" width="102.9" height="126.8" rx="1.5"/><text class="bval sm" x="95.0" y="118.2">1.07</text><rect class="b-peak" x="209.5" y="26.0" width="102.9" height="224.0" rx="1.5"/><text class="bval sm" x="261.0" y="21.0">1.89</text><rect class="b-normal" x="375.5" y="67.5" width="102.9" height="182.5" rx="1.5"/><text class="bval sm" x="427.0" y="62.5">1.54</text><rect class="b-normal" x="541.5" y="150.4" width="102.9" height="99.6" rx="1.5"/><text class="bval sm" x="593.0" y="145.4">0.84</text><rect class="b-trough" x="707.5" y="119.6" width="102.9" height="130.4" rx="1.5"/><text class="bval sm" x="759.0" y="114.6">1.1</text><rect class="b-normal" x="873.5" y="145.7" width="102.9" height="104.3" rx="1.5"/><text class="bval sm" x="925.0" y="140.7">0.88</text><line class="axis" x1="12.0" y1="250.0" x2="1008.0" y2="250.0"/><text class="blab" x="95.0" y="272">2020</text><text class="blab" x="261.0" y="272">2021</text><text class="blab" x="427.0" y="272">2022</text><text class="blab" x="593.0" y="272">2023</text><text class="blab" x="759.0" y="272">2024</text><text class="blab" x="925.0" y="272">2025</text></svg></div>
+  <p class="cap">固定資產支出六年區間：0.84～1.89 億，米色為高點 2021、粉色為低點 2023。六年累計 <b>7.32 億</b>。</p>
+  <p><b>數字現象：</b>真實資本支出六年<b>從未突破 2 億</b>，也<b>從未低於 0.8 億</b>，波動幅度僅約 2.3 倍，而且高峰出現在 2021 年、其後逐步收斂到 0.88～1.10 億的水準。這是相當克制的支出節奏，沒有「押身家豪賭一把」的痕跡。</p>
+  <p><b>個性標籤：「量入為出的節儉派」。</b>雖然本業不賺現金，但公司在資本支出上並沒有失控——它沒有一邊虧錢一邊蓋大廠。</p>
+  <p><b>評分理由：</b>支出節制、規模穩定、無突發性巨額擴張，這是六項規則裡唯一明確的強項。但扣分點在於：<b>這些投資完全不是用本業現金支應的</b>（A 六年累計僅 0.83 億，卻投出 7.32 億固定資產），資金全靠增資，紀律良好但缺乏自給自足能力。<b>給 55 分</b>。</p>
+
+  <h3><span class="rn">03</span>規則三：投資效益（投資年度 vs 隔年 A）</h3>
+  <p class="lead">依規則以 <b>A（營業現金流）</b>為核心對照指標，判斷每一年的投資在 1–2 年後是否轉化為造血能力。此規則涉及跨年度因果錯位，因此用表格逐列對照而非長條圖。</p>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">投資年度</th><th>當年 B</th><th>其中固定資產支出</th><th>隔年</th><th>隔年 A</th><th style="text-align:left">效益</th><th style="text-align:left">說明</th></tr></thead><tbody><tr><th class="rh">2020</th><td class="n negv">-1.14</td><td class="n">1.07</td><td class="rh" style="text-align:right">2021</td><td class="n negv">-0.16</td><td class="">△ 部分</td><td class="l">部分改善（−0.69→−0.16），但仍為負</td></tr><tr class="hlrow"><th class="rh">2021</th><td class="n negv">-3.68</td><td class="n">1.89</td><td class="rh" style="text-align:right">2022</td><td class="n posv">+3.15</td><td class="pass">✅ 有效</td><td class="l">轉正，全期唯一一次明顯見效</td></tr><tr class="warnrow"><th class="rh">2022</th><td class="n negv">-1.76</td><td class="n">1.54</td><td class="rh" style="text-align:right">2023</td><td class="n negv">-1.54</td><td class="fail">❌ 無效</td><td class="l">惡化，由 +3.15 直接摔回負值</td></tr><tr class="warnrow"><th class="rh">2023</th><td class="n negv">-2.80</td><td class="n">0.84</td><td class="rh" style="text-align:right">2024</td><td class="n negv">-0.53</td><td class="fail">❌ 無效</td><td class="l">失血縮小但仍為負</td></tr><tr class="hlrow"><th class="rh">2024</th><td class="n negv">-0.60</td><td class="n">1.10</td><td class="rh" style="text-align:right">2025</td><td class="n posv">+0.60</td><td class="pass">✅ 有效</td><td class="l">轉正，但金額僅 0.6 億</td></tr><tr><th class="rh">2025</th><td class="n posv">+2.50</td><td class="n">0.88</td><td class="rh" style="text-align:right">2026</td><td class="n muted">(待驗證)</td><td class="muted">— 未到期</td><td class="l">B 轉正係贖回金融資產所致，非停止投資</td></tr></tbody></table></div>
+  <p class="cap">六次投資年度中，隔年 A 明確轉正的只有 <b>2 次（2021→2022、2024→2025）</b>，其中 2022 年的成果在隔年就完全消失。</p>
+  <p><b>數字現象：</b>投入是連續且穩定的（每年 0.84～1.89 億固定資產），但產出是斷續且無法延續的。<b>最關鍵的證據是 2022 年</b>：那一年 A 好不容易衝到 +3.15 億，公司隨即再投 1.54 億，結果 2023 年 A 直接掉到 −1.54 億——投資不但沒有把好局面延續下去，反而伴隨著更大的失血。</p>
+  <p><b>個性標籤：「老將自費特訓型」。</b>六年間持續自掏腰包（實際上是掏股東腰包）做投資，但成效時有時無、無法累積。它不是不努力，而是<b>努力與結果之間的關聯性很弱</b>——這通常意味著公司的成敗更取決於外部環境或單一客戶／訂單的有無，而非自身投入的多寡。</p>
+  <p><b>評分理由：</b>2/6 的轉化成功率、且唯一一次明顯見效（2022）無法延續超過一年。2024→2025 那次雖然轉正，但金額僅 0.60 億，稱不上有力驗證。<b>給 30 分</b>。</p>
+
+  <h3><span class="rn">04</span>規則四：融資活動（C）的合理性與警戒訊號</h3>
+  <div class="chartbox"><svg class="bars" viewBox="0 0 1020 290" xmlns="http://www.w3.org/2000/svg" role="img"><rect class="hiband" x="14.0" y="12.0" width="162.0" height="254.0"/><rect class="hiband" x="180.0" y="12.0" width="162.0" height="254.0"/><rect class="hiband" x="346.0" y="12.0" width="162.0" height="254.0"/><rect class="b-s1" x="43.2" y="165.3" width="49.8" height="26.2" rx="1.5"/><text class="bval sm" x="68.1" y="204.5">-1.14</text><rect class="b-s2" x="97.0" y="116.7" width="49.8" height="48.6" rx="1.5"/><text class="bval sm" x="121.9" y="111.7">2.11</text><rect class="b-s1" x="209.2" y="165.3" width="49.8" height="84.7" rx="1.5"/><text class="bval sm" x="234.1" y="263.0">-3.68</text><rect class="b-s2" x="263.0" y="68.4" width="49.8" height="96.9" rx="1.5"/><text class="bval sm" x="287.9" y="63.4">4.21</text><rect class="b-s1" x="375.2" y="165.3" width="49.8" height="40.5" rx="1.5"/><text class="bval sm" x="400.1" y="218.8">-1.76</text><rect class="b-s2" x="429.0" y="26.0" width="49.8" height="139.3" rx="1.5"/><text class="bval sm" x="453.9" y="21.0">6.05</text><rect class="b-s1" x="541.2" y="165.3" width="49.8" height="64.5" rx="1.5"/><text class="bval sm" x="566.1" y="242.7">-2.8</text><rect class="b-s2" x="595.0" y="165.3" width="49.8" height="10.6" rx="1.5"/><text class="bval sm" x="619.9" y="188.9">-0.46</text><rect class="b-s1" x="707.2" y="165.3" width="49.8" height="13.8" rx="1.5"/><text class="bval sm" x="732.1" y="192.1">-0.6</text><rect class="b-s2" x="761.0" y="165.3" width="49.8" height="26.7" rx="1.5"/><text class="bval sm" x="785.9" y="205.0">-1.16</text><rect class="b-s1" x="873.2" y="107.7" width="49.8" height="57.6" rx="1.5"/><text class="bval sm" x="898.1" y="102.7">2.5</text><rect class="b-s2" x="927.0" y="124.5" width="49.8" height="40.7" rx="1.5"/><text class="bval sm" x="951.9" y="119.5">1.77</text><line class="axis" x1="12.0" y1="165.3" x2="1008.0" y2="165.3"/><text class="blab" x="95.0" y="272">2020</text><text class="blab" x="261.0" y="272">2021</text><text class="blab" x="427.0" y="272">2022</text><text class="blab" x="593.0" y="272">2023</text><text class="blab" x="759.0" y="272">2024</text><text class="blab" x="925.0" y="272">2025</text></svg></div>
+  <div class="legend"><span><i class="sw s1"></i>B 投資活動</span><span><i class="sw s2"></i>C 融資活動</span><span><i class="sw band"></i>「B 為負 ＋ C 為正」＝借錢／募資支應投資的年度</span></div>
+  <p class="cap">2020、2021、2022 三年出現典型的「一邊投資、一邊向外拿錢」組合。2023 年 B 為 −2.80 億而 C 僅 −0.46 億（小幅負值），依規則同樣構成警戒。</p>
+  <h4>拆解 C 的組成——這一步決定了警戒等級的排序</h4>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">融資活動細項（億元）</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><th class="rh">短期借款增加（減少）</th><td class="n muted">-</td><td class="n ">0</td><td class="n posv">0.4</td><td class="n posv">2.8</td><td class="n posv">0.3</td><td class="n negv">-3.5</td></tr><tr><th class="rh">長期借款增加（減少）</th><td class="n negv">-0.35</td><td class="n negv">-0.8</td><td class="n negv">-2.9</td><td class="n negv">-1.39</td><td class="n negv">-1.39</td><td class="n negv">-1.18</td></tr><tr><th class="rh">租賃本金增加（減少）</th><td class="n negv">-0.09</td><td class="n negv">-0.08</td><td class="n negv">-0.08</td><td class="n negv">-0.08</td><td class="n negv">-0.08</td><td class="n negv">-0.09</td></tr><tr><th class="rh">存入保證金增加（減少）</th><td class="n ">0</td><td class="n posv">1.81</td><td class="n posv">0</td><td class="n negv">-1.81</td><td class="n negv">-0</td><td class="n ">0</td></tr><tr><th class="rh">現金增資</th><td class="n posv">2.55</td><td class="n posv">3.29</td><td class="n posv">8.63</td><td class="n muted">-</td><td class="n ">0</td><td class="n posv">6.4</td></tr><tr><th class="rh">員工執行認股權</th><td class="n muted">-</td><td class="n muted">-</td><td class="n ">0</td><td class="n posv">0.01</td><td class="n posv">0.01</td><td class="n posv">0.13</td></tr><tr class="hlrow"><th class="rh">C 融資活動淨額</th><td class="n posv">2.11</td><td class="n posv">4.21</td><td class="n posv">6.05</td><td class="n negv">-0.46</td><td class="n negv">-1.16</td><td class="n posv">1.77</td></tr></tbody></table></div>
+  <p class="cap">六年現金增資合計 <b>20.87 億</b>（2020 年 2.55 ＋ 2021 年 3.29 ＋ 2022 年 8.63 ＋ 2025 年 6.40），是 C 為正值的主要推手。</p>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">年度</th><th>A</th><th>B</th><th>C</th><th style="text-align:left">C 的主要資金來源</th><th style="text-align:left">警戒判定</th></tr></thead><tbody><tr class="warnrow"><th class="rh">2020</th><td class="n negv">-0.69</td><td class="n negv">-1.14</td><td class="n posv">+2.11</td><td class="l">現金增資 2.55（股權為主）</td><td class="l">⚠️ 三重疊加</td></tr><tr class="warnrow"><th class="rh">2021</th><td class="n negv">-0.16</td><td class="n negv">-3.68</td><td class="n posv">+4.21</td><td class="l">現金增資 3.29 ＋ 存入保證金 1.81</td><td class="l">⚠️ 三重疊加</td></tr><tr class="hlrow"><th class="rh">2022</th><td class="n posv">+3.15</td><td class="n negv">-1.76</td><td class="n posv">+6.05</td><td class="l">現金增資 8.63，同時還長借 −2.90</td><td class="l">本業為正，不成立</td></tr><tr class="warnrow"><th class="rh">2023</th><td class="n negv">-1.54</td><td class="n negv">-2.80</td><td class="n negv">-0.46</td><td class="l">短期借款 +2.80（純舉債），無增資</td><td class="l">⚠️ 三重疊加（風險最高）</td></tr><tr><th class="rh">2024</th><td class="n negv">-0.53</td><td class="n negv">-0.60</td><td class="n negv">-1.16</td><td class="l">長借 −1.39，無新增資金</td><td class="l">次級警訊：靠消耗現金撐</td></tr><tr class="hlrow"><th class="rh">2025</th><td class="n posv">+0.60</td><td class="n posv">+2.50</td><td class="n posv">+1.77</td><td class="l">現金增資 6.40，還短借 −3.50、長借 −1.18</td><td class="l">本業為正，結構改善</td></tr></tbody></table></div>
+  <p class="cap">紅底列為<b>三重疊加警戒年度（3 次）</b>，灰底列為本業現金流為正、不構成警戒的年度。</p>
+  <p><b>數字現象與警戒等級排序：</b></p>
+  <ul>
+    <li><b>2023 年風險最高</b>：A −1.54、B −2.80，而 C 之所以只有 −0.46 億，是因為<b>新增短期借款 +2.80 億</b>抵銷了長期借款償還與存入保證金退還。<span class="negv-t">這是六年中唯一一次「本業失血、又靠純舉債補洞」的年度</span>，且該年沒有任何現金增資。</li>
+    <li><b>2020／2021 次之</b>：同樣是 A 為負、B 為負、C 為正，但 C 的來源是<b>現金增資 2.55 億與 3.29 億</b>——股權募資不會產生還款壓力與利息負擔，風險型態明顯低於舉債。</li>
+    <li><b>2024 年屬次級警訊</b>：A 仍為 −0.53 億，但 C 為 −1.16 億（實質淨還債，長期借款減少 1.39 億），代表公司沒有新增外部資金，而是<b>燒自己的現金水位</b>——期末餘額也因此從 4.03 億掉到 1.74 億。這是「有還債意願」但「水位吃緊」的組合。</li>
+    <li><b>2025 年方向正確</b>：A 轉正 +0.60 億，同時用增資款 6.40 億<b>把短期借款還掉 3.50 億、長期借款還掉 1.18 億</b>。資金結構從債往股移動，是六年中最健康的一次融資行為。</li>
+  </ul>
+  <p><b>個性標籤：「靠家人接濟的成年人」。</b>它不太算「寅吃卯糧」（那通常指反覆舉債），因為它主要的外部資金來源是<b>反覆向股東增資</b>——六年四度增資、累計 20.87 億。這種型態對債權人友善、對現有股東不友善，因為股權會被持續稀釋。</p>
+  <p><b>評分理由：</b>三重疊加訊號出現 3 次（占六年一半），且六年累計融資淨流入 12.52 億 vs 營業現金流累計 0.83 億，<b>外部資金依賴度極高</b>。減分幅度稍微收斂的理由是：資金來源以股權為主而非純舉債，2025 年更主動去槓桿。<b>給 30 分</b>。</p>
+
+  <h3><span class="rn">05</span>規則五：A &gt; D 的現金流品質（嚴格二分法）</h3>
+  <p class="lead">依規則採嚴格二分法逐年判斷，不分程度高低：該年 A &gt; D 即通過（D 為負值時 A 須為正才算通過；A 為負值一律不通過）。</p>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">年度</th><th>A 營業現金流</th><th>D 稅前淨利</th><th style="text-align:left">判定</th><th style="text-align:left">說明</th></tr></thead><tbody><tr class="warnrow"><th class="rh">2020</th><td class="n negv">-0.69</td><td class="n negv">-5.58</td><td class="fail">❌ 不通過</td><td class="l">A 為負值，依規則直接不通過</td></tr><tr class="warnrow"><th class="rh">2021</th><td class="n negv">-0.16</td><td class="n negv">-3.96</td><td class="fail">❌ 不通過</td><td class="l">A 為負值，依規則直接不通過</td></tr><tr class="hlrow"><th class="rh">2022</th><td class="n posv">3.15</td><td class="n posv">0.69</td><td class="pass">✅ 通過</td><td class="l">A 為正且大於 D</td></tr><tr class="warnrow"><th class="rh">2023</th><td class="n negv">-1.54</td><td class="n negv">-6.53</td><td class="fail">❌ 不通過</td><td class="l">A 為負值，依規則直接不通過</td></tr><tr class="warnrow"><th class="rh">2024</th><td class="n negv">-0.53</td><td class="n negv">-4.86</td><td class="fail">❌ 不通過</td><td class="l">A 為負值，依規則直接不通過</td></tr><tr class="hlrow"><th class="rh">2025</th><td class="n posv">0.6</td><td class="n negv">-4.64</td><td class="pass">✅ 通過</td><td class="l">A 為正且大於 D</td></tr><tr class="qrow"><th class="rh">26H1 <span style="font-size:10.5px;color:#6E7B8A">單期參考</span></th><td class="n posv">0.42</td><td class="n posv">0.06</td><td class="muted" style="text-align:left">不列入計分</td><td class="l">半年累計，非完整年度</td></tr></tbody></table></div>
+  <p class="cap">通過 <b>2 年</b>（2022、2025）／總計 6 年 → 單項分數 = 2 ÷ 6 × 100 = <b>33.3 分</b>。</p>
+  <p><b>數字現象：</b>這裡有個容易誤判的地方值得說清楚。表面上 <b>A &gt; D 在六年中有五年成立</b>（因為 D 大多是很深的負值，例如 2023 年 D 為 −6.53 而 A 為 −1.54），但依規則定義，<b>A 本身為負值一律視為不通過</b>——公司在虧損的同時，現金也是流出的，這種「A 大於 D」不具備任何品質意涵。</p>
+  <p>真正有意義的是另一個角度：<b>2020–2025 稅前淨利累計 <span class="negv-t">−24.88 億</span>，但營業現金流累計 <span class="posv-t">+0.83 億</span></b>。兩者落差約 25.7 億，代表帳上虧損有相當比例來自<b>不影響現金的項目</b>（如折舊攤銷、資產減損、股份基礎給付等）。這是一個相對正面的訊號——公司的虧損沒有全額轉化為現金失血。</p>
+  <p><b>個性標籤：「帳面很慘、現金沒那麼慘」。</b>與常見的「膨風灌水型」（帳面賺錢、收不到現金）正好相反，這家公司是帳面虧損遠大於實際現金失血。</p>
+  <p><b>評分理由：</b>依規則的嚴格二分法，通過率 2/6，<b>單項分數 33.3 分</b>，不因上述定性觀察而加分（規則明訂不設程度加減）。上述「虧損多為非現金項目」的觀察，留待第二步之後查證實際組成。</p>
+
+  <h3><span class="rn">06</span>規則六：期末現金餘額（E）的穩定性</h3>
+  <div class="chartbox"><svg class="bars" viewBox="0 0 1020 280" xmlns="http://www.w3.org/2000/svg" role="img"><rect class="b-trough" x="39.0" y="224.1" width="88.2" height="25.9" rx="1.5"/><text class="bval sm" x="83.1" y="219.1">1.02</text><rect class="b-normal" x="181.3" y="214.7" width="88.2" height="35.3" rx="1.5"/><text class="bval sm" x="225.4" y="209.7">1.39</text><rect class="b-peak" x="323.6" y="26.0" width="88.2" height="224.0" rx="1.5"/><text class="bval sm" x="367.7" y="21.0">8.83</text><rect class="b-normal" x="465.9" y="147.8" width="88.2" height="102.2" rx="1.5"/><text class="bval sm" x="510.0" y="142.8">4.03</text><rect class="b-normal" x="608.2" y="205.9" width="88.2" height="44.1" rx="1.5"/><text class="bval sm" x="652.3" y="200.9">1.74</text><rect class="b-normal" x="750.5" y="82.3" width="88.2" height="167.7" rx="1.5"/><text class="bval sm" x="794.6" y="77.3">6.61</text><rect class="b-normal" opacity=".45" x="892.7" y="114.3" width="88.2" height="135.7" rx="1.5"/><text class="bval sm" x="936.9" y="109.3">5.35</text><line class="axis" x1="12.0" y1="250.0" x2="1008.0" y2="250.0"/><text class="blab" x="83.1" y="272">2020</text><text class="blab" x="225.4" y="272">2021</text><text class="blab" x="367.7" y="272">2022</text><text class="blab" x="510.0" y="272">2023</text><text class="blab" x="652.3" y="272">2024</text><text class="blab" x="794.6" y="272">2025</text><text class="blab" x="936.9" y="272">26H1</text></svg></div>
+  <p class="cap">米色為高點 2022 年 8.83 億，粉色為起點兼低點 2020 年 1.02 億；最右側淺色為 26H1。</p>
+  <p><b>數字現象：</b>表面上看，餘額從 2020 年的 1.02 億上升到 2025 年的 6.61 億，<b>六年成長 6.5 倍</b>，像是體質改善。但把每一次跳升的來源對上融資明細後，圖形的意義完全改變：</p>
+  <div class="tw"><table class="grid"><thead><tr><th class="rh">期間</th><th>期末餘額變化</th><th>當期現金增資</th><th style="text-align:left">實質解讀</th></tr></thead><tbody>
+    <tr class="hlrow"><th class="rh">2021 → 2022</th><td class="n posv">1.39 → 8.83</td><td class="n">8.63</td><td class="l">跳升 7.44 億，<b>幾乎等於當年增資金額</b></td></tr>
+    <tr class="warnrow"><th class="rh">2022 → 2024</th><td class="n negv">8.83 → 1.74</td><td class="n muted">0</td><td class="l">兩年<b>燒掉 7.09 億</b>，把上一輪增資款用得只剩零頭</td></tr>
+    <tr class="hlrow"><th class="rh">2024 → 2025</th><td class="n posv">1.74 → 6.61</td><td class="n">6.40</td><td class="l">再次跳升 4.87 億，<b>同樣來自新一輪增資</b></td></tr>
+    <tr><th class="rh">2025 → 26H1</th><td class="n negv">6.61 → 5.35</td><td class="n muted">0</td><td class="l">半年減少 1.26 億（單期參考，不計分）</td></tr>
+  </tbody></table></div>
+  <p class="cap">現金水位的每一次高點都緊接在增資之後，每一次低點都出現在「上一輪增資款燒完、下一輪還沒到」的空窗期。</p>
+  <p><b>個性標籤：「鋸齒型的呼吸器」。</b>這條線不是穩定，也不是成長，而是<b>「增資 → 燒完 → 再增資」的鋸齒</b>。最值得警惕的是 2024 年底只剩 1.74 億——以該年營業現金流 −0.53 億、投資 −0.60 億的燒錢速度推算，那個水位大約只夠撐一年多，因此 2025 年的 6.40 億增資本質上是必要的補血，而非擴張性募資。</p>
+  <p><b>評分理由：</b>長期趨勢確實是上升的（1.02 → 6.61 億），26H1 的 5.35 億也仍屬相對高位，這是加分項；但上升完全由外部增資驅動、且中間出現兩年腰斬七成的劇烈回落，遠超出「合理波動」範圍。<b>給 35 分</b>。</p>
+
+  <h3><span class="rn">§</span>總評分與關卡判斷</h3>
+  <div class="scwrap"><div class="sc bad"><div class="scn">RULE 01</div><div class="scl">A 逐年成長趨勢</div><div class="scv">35</div><div class="scb">需觀察</div></div><div class="sc bad"><div class="scn">RULE 02</div><div class="scl">B 投資紀律</div><div class="scv">55</div><div class="scb">需觀察</div></div><div class="sc bad"><div class="scn">RULE 03</div><div class="scl">B 投資效益</div><div class="scv">30</div><div class="scb">需觀察</div></div><div class="sc bad"><div class="scn">RULE 04</div><div class="scl">C 融資合理性</div><div class="scv">30</div><div class="scb">需觀察</div></div><div class="sc bad"><div class="scn">RULE 05</div><div class="scl">A > D 現金流品質</div><div class="scv">33.3</div><div class="scb">需觀察</div></div><div class="sc bad"><div class="scn">RULE 06</div><div class="scl">E 現金餘額穩定性</div><div class="scv">35</div><div class="scb">需觀察</div></div></div>
+  <div class="total">
+    <div><div class="tl">Total Score</div><div class="tv">36.4</div></div>
+    <div class="tn"><b>需觀察（&lt; 60 分）</b>。六項規則沒有任何一項達到 60 分，最高的投資紀律也只有 55 分。同時出現「A 為負 ＋ B 重度投資 ＋ C 為正或小幅負值」的<b>三重疊加訊號共 3 次</b>（2020、2021、2023）。</div>
+  </div>
+
+  <div class="key warn">
+    <div class="kt">關卡建議</div>
+    <p><b>依流程規則，這檔股票在第一步就未通過關卡，建議先不繼續往下深入基本面。</b></p>
+    <p>核心理由不是「虧損」本身，而是這組數字揭露的<b>資金結構</b>：六年營業現金流累計 <span class="posv-t">+0.83 億</span>、稅前淨利累計 <span class="negv-t">−24.88 億</span>、現金增資累計 <span class="negv-t">20.87 億</span>。<b>公司之所以還在營運，靠的是股東而不是客戶。</b>對現有股東而言，這代表持續的股權稀釋風險——除非本業造血能力出現數量級的改變。</p>
+    <p><b>但有兩點必須公平地放在天平另一端</b>：其一，2023 → 2025 的改善斜率是真實的（A 由 −1.54 走到 +0.60，26H1 續為 +0.42）；其二，2025 年公司用增資款主動償還了 4.68 億借款，債務結構在改善。<b>若你的興趣是「這家公司是不是正在轉折」，那第二步之後的基本面資訊反而是關鍵</b>——因為單看現金流，這個轉折的幅度還太小，無法判斷是真的翻身還是又一次的零軸擺盪。</p>
+    <p><b>要繼續看下去嗎？</b>若要，我會直接進入第 2 步（股價／EPS／殖利率／營收／法說會）；若不看了，這份報告就停在這裡作為紀錄。</p>
+  </div>
+
+  <div class="snap">
+    <b>資料來源：</b>本步驟所有現金流量、投資活動細項、融資活動細項數字，皆為<b>使用者提供的 Goodinfo 頁面截圖</b>（3 張），非本次網路搜尋所得。原始頁面：<a href="https://goodinfo.tw/tw/StockCashFlow.asp?STOCK_ID=6920">goodinfo.tw／6920 現金流量表</a>（該站阻擋自動化擷取，Claude 未自行讀取）。<br>
+    <b>盲測聲明：</b>截圖中另含「年度股價」「漲跌幅」「稅後 EPS」「財報評分」欄位，依流程規則<b>本步驟一律未採用、未參考</b>，以維持盲測獨立性。<br>
+    <b>推算數字標註：</b>「六年累計」「剔除某年後累計」「年均」「固定資產支出累計 7.32 億」「現金增資累計 20.87 億」等，均為 Claude 依截圖數字<b>自行加總推算</b>，非直接查得的公告數字。<br>
+    <b>26H1 認定依據：</b>截圖標示為「26Q2」，但其期初餘額 6.61 億與 2025 年期末餘額相符，故判定為<b>年初起算之累計數</b>；此為 Claude 的推論，非官方標示。
+  </div>
+</section>
+
+<section id="step2"><div class="steptag">第 2 步／共 6 步</div><h2>基本資訊查詢</h2><div class="pending">尚未執行。第一步關卡未通過，待使用者確認是否繼續。</div></section>
+<section id="step3"><div class="steptag">第 3 步／共 6 步</div><h2>法說會資料深入討論</h2><div class="pending">尚未執行。</div></section>
+<section id="step4"><div class="steptag">第 4 步／共 6 步</div><h2>營收趨勢視覺化</h2><div class="pending">尚未執行。</div></section>
+<section id="step5"><div class="steptag">第 5 步／共 6 步</div><h2>前瞻本益比／EPS 預估</h2><div class="pending">尚未執行。</div></section>
+<section id="step6"><div class="steptag">第 6 步／共 6 步</div><h2>投資決策推理</h2><div class="pending">僅在使用者主動詢問時執行。</div></section>
+
+<footer>
+  6920 恆勁 · 個股初步分析 · 報告版本 v1.0 · 生成時間 2026-08-17 13:28<br>
+  本報告為財務數據的結構化整理與推理，不構成投資建議。所有數字以官方財報公告為準。
+</footer>
+
+</div>
+<script>
+(function(){
+  var pads = Array.prototype.slice.call(document.querySelectorAll('.pad'));
+  var secs = Array.prototype.slice.call(document.querySelectorAll('section[id]'));
+  pads.forEach(function(p){
+    p.addEventListener('click', function(){
+      if (p.classList.contains('locked')) return;
+      var el = document.getElementById(p.dataset.t);
+      if (!el) return;
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      el.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'start'});
+    });
+  });
+  function setActive(id){
+    pads.forEach(function(p){
+      p.classList.toggle('active', p.dataset.t === id && !p.classList.contains('locked'));
+    });
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      var vis = entries.filter(function(e){ return e.isIntersecting; });
+      if (!vis.length) return;
+      vis.sort(function(a,b){ return b.intersectionRatio - a.intersectionRatio; });
+      setActive(vis[0].target.id);
+    }, {rootMargin: '-64px 0px -55% 0px', threshold: [0.02, 0.2, 0.6]});
+    secs.forEach(function(s){ io.observe(s); });
+  } else {
+    window.addEventListener('scroll', function(){
+      var best = null, bd = 1e9;
+      secs.forEach(function(s){
+        var d = Math.abs(s.getBoundingClientRect().top - 70);
+        if (d < bd) { bd = d; best = s; }
+      });
+      if (best) setActive(best.id);
+    }, {passive: true});
+  }
+})();
+</script>
+</body></html>
