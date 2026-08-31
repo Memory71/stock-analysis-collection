@@ -7,7 +7,7 @@ description: "台股個股初步分析六步驟流程。當使用者提供台股
 
 > ⚠️ **這是 Claude Skills 工具專屬版**，包含 `create_file`／`present_files`／`visualize` 等 Claude 專屬工具的使用規則、以及 Git 版控自動化流程。若你想在其他 AI 聊天工具（沒有檔案系統或 bash 工具）使用，請改用同目錄下的 [`台股個股分析框架_通用版.md`](./台股個股分析框架_通用版.md)。
 >
-> ⚙️ **使用前必須修改**：本檔案中的 Git repo 網址與 GitHub Pages 網址皆為佔位符（`{your-username}/{your-repo}`），請先替換成你自己的 repo，否則 AI 會嘗試把分析報告 push 到別人的 repository。
+> ⚙️ **本檔案的 repo 網址已設定為 `Memory71/stock-analysis-collection`**（原始通用版為佔位符，此份已替換為實際值）。若要給其他人使用，請先改成對方自己的 repo，否則 AI 會嘗試把分析報告 push 到別人的 repository。
 
 一套六步驟的台股分析框架，核心原則是「現金流優先、基本面在後」——避免看到公司背景、產業地位、法說會樂觀話術後，帶著先入為主的印象去解讀財務數據。
 
@@ -26,7 +26,7 @@ description: "台股個股初步分析六步驟流程。當使用者提供台股
 第六步：投資決策推理（買入/續抱/賣出）── 僅使用者主動詢問才做
 ```
 
-每次對話開始進行新股票分析前，先向使用者索取 GitHub Personal Access Token（用於推送分析成果至 `https://github.com/{your-username}/{your-repo}`），並明確告知：「此 token 僅在本次對話中使用，不會被記住，開新對話框分析下一檔股票時需要重新提供。」若使用者尚未提供 token 就要求開始分析，仍可先進行現金流分析（第一步），但在第一次需要輸出/推送報告前，務必先跟使用者要 token，不要跳過此步驟直接嘗試 push。
+每次對話開始進行新股票分析前，先向使用者索取 GitHub Personal Access Token（用於推送分析成果至 `https://github.com/Memory71/stock-analysis-collection`），並明確告知：「此 token 僅在本次對話中使用，不會被記住，開新對話框分析下一檔股票時需要重新提供。」若使用者尚未提供 token 就要求開始分析，仍可先進行現金流分析（第一步），但在第一次需要輸出/推送報告前，務必先跟使用者要 token，不要跳過此步驟直接嘗試 push。
 
 每次開始分析新股票時，先用一句話列出這六步驟給使用者看（除非使用者只針對單一模組提問），再依序執行。每進入一個新步驟時，開頭標示進度，例如：「【第 1 步／共 6 步：現金流量表六大規則分析】」。
 
@@ -193,8 +193,10 @@ description: "台股個股初步分析六步驟流程。當使用者提供台股
 
 ## GitHub 版控與總覽首頁維護規則（貫穿全程）
 
-Repo: `https://github.com/{your-username}/{your-repo}/`
-GitHub Pages 首頁: `http://{your-username}.github.io/{your-repo}/`
+Repo: https://github.com/Memory71/stock-analysis-collection/
+
+**次要鏡像 repo**：若使用者在該次對話中另外提供第二組 token 並要求「同時也推一份」，才推送第二個目標；第二個 repo 的帳號與路徑一律以使用者當次指定為準，**不要沿用前次對話的帳號、也不要自行假設那是使用者本人的帳號**。（曾發生把第二組 token 對應的帳號誤認為使用者本人，並擅自修改該 repo 內與本次分析無關的檔案，事後必須 revert。**只推送本次分析產出的報告與 index.html 條目，不要動該 repo 的其他檔案。**）
+GitHub Pages 首頁: `http://memory71.github.io/stock-analysis-collection/`
 
 每次對話代表一檔股票的完整分析，每完成一個步驟區塊、更新一次 HTML 報告，就要 git push，讓使用者的分析歷程留在版控紀錄中，不只靠最後一次 present_files。
 
@@ -218,12 +220,12 @@ GitHub Pages 首頁: `http://{your-username}.github.io/{your-repo}/`
 ### 三、Git Push 標準流程
 1. 主動詢問使用者要 push 的 GitHub Personal Access Token（不假設 token 仍記得或有效）。
 2. `git remote set-url origin` 帶入 token → `git fetch` + `git reset --hard origin/main` 同步遠端避免衝突 → `git add` → `git -c user.email/-c user.name commit` → `git push`。
-3. push 完成後，無論成功失敗，立即將 `remote set-url` 改回乾淨的 `https://github.com/{your-username}/{your-repo}.git`（不留 token）。
+3. push 完成後，無論成功失敗，立即將 `remote set-url` 改回乾淨的 `https://github.com/Memory71/stock-analysis-collection.git`（不留 token）。
 4. push 前用 `curl -H "Authorization: token <TOKEN>" https://api.github.com/user` 快速驗證 token 是否有效，避免無效 token 浪費來回確認的步驟。
 5. 完成後提供 GitHub Pages 連結，**兩種格式都必須是可點擊的，一律不要用反引號包起來**（反引號會把連結變成不可點的灰底純文字）：
-   - 可點擊連結：[{檔名}](http://{your-username}.github.io/{your-repo}/reports/{檔名})
-   - 純網址（獨立一行直接貼裸網址，方便整段複製）：http://{your-username}.github.io/{your-repo}/reports/{檔名}
-   - 首頁連結：[總覽首頁](http://{your-username}.github.io/{your-repo}/)
+   - 可點擊連結：[{檔名}](http://memory71.github.io/stock-analysis-collection/reports/{檔名})
+   - 純網址（獨立一行直接貼裸網址，方便整段複製）：http://memory71.github.io/stock-analysis-collection/reports/{檔名}
+   - 首頁連結：[總覽首頁](http://memory71.github.io/stock-analysis-collection/)
 6. push 失敗（如 token 過期、權限不足）時，如實告知失敗原因，不要假裝已推送成功。
 
 ### 四、安全提醒
@@ -233,10 +235,10 @@ GitHub Pages 首頁: `http://{your-username}.github.io/{your-repo}/`
 ### 五、報告計數器規則
 - 每份個股分析報告（`reports/{股票代號}_{英文代稱}_analysis.html`）在 `<title>` 下方或報告開頭處，都要加入訪客計數器徽章：
   ```html
-  <img src="https://visitor-badge.laobi.icu/badge?page_id={your-username}.{your-repo}.{股票代號}" alt="Visitors" style="opacity:0.85;">
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=memory71.stock-analysis-collection.{股票代號}" alt="Visitors" style="opacity:0.85;">
   ```
 - `{股票代號}` 帶入該報告實際的股票代號（例如 6239）。
-- 首頁 `index.html` 沿用既有的計數器，`page_id` 為 `{your-username}.{your-repo}.index`，與各報告的 `page_id` 分開計數，不共用。
+- 首頁 `index.html` 沿用既有的計數器，`page_id` 為 `memory71.stock-analysis-collection.index`，與各報告的 `page_id` 分開計數，不共用。
 
 ---
 
